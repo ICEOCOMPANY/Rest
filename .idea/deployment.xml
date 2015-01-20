@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="On explicit save action (Ctrl+S)" promptOnRemoteOverwrite="CHECK_TIMESTAMP" serverName="Iceo development core back" uploadOnCheckin="bdbb8f01-f3ea-4074-8e87-f7def0bfcf24" notifyRemoteChanges="true">
+  <component name="PublishConfigData" autoUpload="On explicit save action (Ctrl+S)" promptOnRemoteOverwrite="CHECK_TIMESTAMP" serverName="Iceo development core back" persistUploadOnCheckin="false" notifyRemoteChanges="true">
     <serverData>
       <paths name="Iceo development core back">
         <serverdata>
@@ -10,7 +10,6 @@
         </serverdata>
       </paths>
     </serverData>
-    <option name="myUploadOnCheckinName" value="Iceo development core back" />
     <option name="myAutoUpload" value="ON_EXPLICIT_SAVE" />
   </component>
 </project>

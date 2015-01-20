@@ -1,6 +1,6 @@
 <?php
 
-echo "automatyczny push";
+echo "automatyczny push2";
 
 use \Phalcon\Loader,
     \Phalcon\DI\FactoryDefault,
