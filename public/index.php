@@ -1,6 +1,6 @@
 <?php
 
-echo "automatyczny push2";
+echo "automatyczny push kurwa";
 
 
 use \Phalcon\Loader,

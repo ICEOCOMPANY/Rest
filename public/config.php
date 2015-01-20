@@ -7,7 +7,7 @@
  */
 
 
-define("DB_HOST","localhost");
+define("DB_HOST","core.iceo.zone");
 define("DB_USER","phalcon");
 define("DB_PASSWORD","ZY5ZUsDTtee4UXQ8");
 define("DB_NAME","phalcon");
