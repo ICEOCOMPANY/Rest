@@ -7,14 +7,6 @@ use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
 
 $di = new FactoryDefault();
 
-/**
- * Sets the view component
- */
-$di['view'] = function () use ($config) {
-    $view = new View();
-    $view->setViewsDir($config->application->viewsDir);
-    return $view;
-};
 
 /**
  * The URL component is used to generate all kind of urls in the application

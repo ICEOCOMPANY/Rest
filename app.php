@@ -1,16 +1,17 @@
 <?php
 
-/**
- * Add your routes here
- */
-$app->get('/', function () use ($app) {
-    echo $app['view']->render('index');
+
+
+$app->get("/person/{id:[0-9]+}",function($id) use ($app){
+    $controller = new Person();
+    $controller->get($id);
 });
 
 /**
  * Not found handler
  */
+
 $app->notFound(function () use ($app) {
     $app->response->setStatusCode(404, "Not Found")->sendHeaders();
-    echo $app['view']->render('404');
+    echo "nie znalazłem";
 });
