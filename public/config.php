@@ -7,10 +7,6 @@
  */
 
 
-echo "test";
-
-
-
 define("DB_HOST","localhost");
 define("DB_USER","phalcon");
 define("DB_PASSWORD","ZY5ZUsDTtee4UXQ8");
