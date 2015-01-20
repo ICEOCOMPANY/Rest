@@ -19,7 +19,7 @@ class Person
                 )
             );
         }
-
+            echo "test";
         echo json_encode($response);
 
     }
