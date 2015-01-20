@@ -19,8 +19,8 @@ class Person
                 )
             );
         }
-            echo "test";
-        echo json_encode($response);
+
+        echo json_encode("chuj");
 
     }
 
