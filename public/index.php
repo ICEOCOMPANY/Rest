@@ -1,5 +1,7 @@
 <?php
 
+echo "automatyczny push";
+
 use \Phalcon\Loader,
     \Phalcon\DI\FactoryDefault,
     \Phalcon\Db\Adapter\Pdo\Mysql,
