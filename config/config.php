@@ -14,6 +14,7 @@ return new \Phalcon\Config(array(
         'modelsDir'      => APP_PATH . '/models/',
         'viewsDir'       => APP_PATH . '/views/',
         'controllersDir' => APP_PATH . '/controllers',
+        'helpersDir'     => APP_PATH . '/helpers',
         'baseUri'        => '/CoreBack/',
     )
 ));

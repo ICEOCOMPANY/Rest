@@ -1,10 +1,10 @@
 <?php
 
 
-
-$app->get("/person/{id:[0-9]+}",function($id) use ($app){
-    $controller = new Person();
+$app->get("/robots/{id:[0-9]+}",function($id) use ($app){
+    $controller = new \Controllers\Robots();
     $app->response = $controller->get($id);
+
 });
 
 /**
@@ -12,5 +12,5 @@ $app->get("/person/{id:[0-9]+}",function($id) use ($app){
  */
 
 $app->notFound(function () use ($app) {
-    $app->response->setStatusCode(404, "Not Found")->sendHeaders();
+    $app->response->setStatusCode(404, "Not Found");
 });

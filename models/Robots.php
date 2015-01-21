@@ -1,4 +1,5 @@
 <?php
+namespace Models;
 
 class Robots extends \Phalcon\Mvc\Model
 {

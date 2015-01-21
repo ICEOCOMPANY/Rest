@@ -30,7 +30,7 @@ try {
     $app = new Micro($di);
 
     /**
-     * Incude Application
+     * Include Application
      */
     include APP_PATH . '/app.php';
 
@@ -38,6 +38,7 @@ try {
      * Handle the request
      */
     $app->handle();
+    $app->response->send();
 
 } catch (\Exception $e) {
     echo $e->getMessage();
