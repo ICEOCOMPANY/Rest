@@ -7,6 +7,7 @@ class Person
         $model = Robots::find();
 
 
+
         $response = array();
         foreach($model as $person){
             echo $person->getName() ." <br> ";
@@ -19,8 +20,6 @@ class Person
                 )
             );
         }
-    echo "test";
-        echo json_encode("chuj");
 
     }
 
