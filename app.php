@@ -4,7 +4,7 @@
 
 $app->get("/person/{id:[0-9]+}",function($id) use ($app){
     $controller = new Person();
-    $controller->get($id);
+    $app->response = $controller->get($id);
 });
 
 /**
