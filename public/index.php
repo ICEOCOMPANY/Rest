@@ -1,4 +1,6 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+
 use Phalcon\Mvc\Micro;
 
 error_reporting(E_ALL);
