@@ -35,8 +35,20 @@ class Auth extends \Phalcon\Mvc\Controller{
             );
 
             if($passwordVerify){
-                $response->setStatusCode("201","Token created");
-                $response->setJson(array("id"=>$user->getId()));
+                $tokenModel = new \Models\Core\Tokens();
+                $tokenModel->setUserId( $user->getId() );
+                $tokenModel->setToken("chujowy token");
+
+                if($tokenModel->save()){
+
+                    $response->setStatusCode("201","Token created");
+                    $response->setJson(array("id"=>$user->getId()));
+
+                }
+
+
+
+
             }else{
                 $response->setStatusCode("401","Unauthorized");
                 $response->setJsonErrors(array("password is invalid"));
