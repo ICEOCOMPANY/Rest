@@ -11,13 +11,12 @@ namespace Controllers\Core;
 
 use \Phalcon\Db\Column;
 
-class Auth extends \Phalcon\Mvc\Controller{
+class Auth extends \Phalcon\Mvc\Controller {
 
+    private $appSecretKey = "sFHePANXTQfhYprW7q2agtotD5YPNh";       // secret key which will encrypt/decrypt tokens
+    private $tokenPermanence = "PT15M";                             // token permanence (DateInterval)
 
-    public function post(){
-
-        echo "test";
-
+    public function createToken(){
         $response = new \Helpers\RestResponse();
 
         $parameters = array(
@@ -38,17 +37,22 @@ class Auth extends \Phalcon\Mvc\Controller{
 
             if($passwordVerify){
                 $tokenModel = new \Models\Core\Tokens();
+
                 $tokenModel->setUserId( $user->getId() );
-                $tokenModel->setToken("chujowy token");
+                $token = \Libs\JWT::encode(
+                    array( "email" => $user->getEmail() , "password" => $user->getPassword() ),
+                    $this->appSecretKey
+                );
+                $tokenModel->setToken($token);
+
+                $tokenModel->setExpirationTime(
+                    (new \DateTime())->add(new \DateInterval($this->tokenPermanence))->format("Y-m-d H:i:s")
+                );
 
                 if($tokenModel->save()){
-
                     $response->setStatusCode("201","Token created");
-                    $response->setJson(array("id"=>$user->getId()));
-
+                    $response->setJson(array("token"=>$token));
                 }
-
-
 
 
             }else{
@@ -63,6 +67,32 @@ class Auth extends \Phalcon\Mvc\Controller{
 
         return $response;
     }
+
+
+    public function validateToken(){
+        $response = false;
+
+        $tokenModel = \Models\Core\Tokens::findFirst(array(
+            "token = :token:",
+            "bind" => array("token" => $this->request->getPost("token") )
+        ));
+
+        if($tokenModel){
+            $tokenModel->setExpirationTime(
+                (new \DateTime())->add(new \DateInterval($this->tokenPermanence))->format("Y-m-d H:i:s")
+            );
+
+            $tokenModel->save();
+
+            $response = $tokenModel->getUserId();
+        }
+
+        return $response;
+
+
+    }
+
+
 
 
 } 

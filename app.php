@@ -1,5 +1,10 @@
 <?php
 
+$userDataContainer = new stdClass();
+$userDataContainer->id = (new \Controllers\Core\Auth())->validateToken();
+
+$app->getDI()->set("user",$userDataContainer);
+
 
 
 $app->get("/person",function() use ($app){
@@ -8,8 +13,12 @@ $app->get("/person",function() use ($app){
 });
 
 $app->post("/auth",function() use ($app){
-    $app->response = (new \Controllers\Core\Auth())->post();
+    $app->response = (new \Controllers\Core\Auth())->createToken();
+});
 
+$app->post("/checkAuth",function() use ($app){
+    print_r($app->getDI()->get("user")->id);
+    //$app->response = ;
 });
 
 /**

@@ -18,6 +18,12 @@ class Tokens extends \Phalcon\Mvc\Model
     protected $token;
 
     /**
+     *
+     * @var string
+     */
+    protected $expiration_time;
+
+    /**
      * Method to set the value of field user_id
      *
      * @param integer $user_id
@@ -44,6 +50,19 @@ class Tokens extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Method to set the value of field expiration_time
+     *
+     * @param string $expiration_time
+     * @return $this
+     */
+    public function setExpirationTime($expiration_time)
+    {
+        $this->expiration_time = $expiration_time;
+
+        return $this;
+    }
+
+    /**
      * Returns the value of field user_id
      *
      * @return integer
@@ -63,6 +82,16 @@ class Tokens extends \Phalcon\Mvc\Model
         return $this->token;
     }
 
+    /**
+     * Returns the value of field expiration_time
+     *
+     * @return string
+     */
+    public function getExpirationTime()
+    {
+        return $this->expiration_time;
+    }
+
     public function getSource()
     {
         return 'tokens';
@@ -75,7 +104,8 @@ class Tokens extends \Phalcon\Mvc\Model
     {
         return array(
             'user_id' => 'user_id', 
-            'token' => 'token'
+            'token' => 'token', 
+            'expiration_time' => 'expiration_time'
         );
     }
 

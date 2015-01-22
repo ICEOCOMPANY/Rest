@@ -1,5 +1,5 @@
 <?php
-///define('APP_PATH', realpath(''));
+//define('APP_PATH', realpath(''));
 
 return new \Phalcon\Config(array(
 
