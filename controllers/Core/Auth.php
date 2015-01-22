@@ -29,7 +29,7 @@ class Auth extends \Phalcon\Mvc\Controller{
 
 
         if($user){
-            $passwordVerify = password_verify(
+            $passwordVerify = \password_verify(
                 $this->request->getPost("password"),
                 $user->getPassword()
             );
