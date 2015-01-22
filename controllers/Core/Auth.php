@@ -16,6 +16,8 @@ class Auth extends \Phalcon\Mvc\Controller{
 
     public function post(){
 
+        echo "test";
+
         $response = new \Helpers\RestResponse();
 
         $parameters = array(
