@@ -5,8 +5,7 @@ namespace controllers;
 class Robots
 {
     public function get($id){
-
-        $model = \Models\Robots::find();
+        $model = \Models\Robots::find($id);
         $data = array();
         foreach($model as $person){
             array_push($data,
@@ -19,8 +18,7 @@ class Robots
         $response = new \Helpers\RestResponse();
         $response->setJson($data);
         return $response;
-
-
     }
+
 
 }

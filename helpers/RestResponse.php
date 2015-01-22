@@ -13,6 +13,12 @@ class RestResponse extends \Phalcon\Http\Response{
         $this->setContentType("application/json");
     }
 
+    public function setJsonErrors($array){
+        $this->setJson(array(
+            "errors" => $array
+        ));
+    }
+
     public function setJson($data){
         $this->setContent(json_encode($data));
     }

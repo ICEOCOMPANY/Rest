@@ -1,9 +1,14 @@
 <?php
 
 
-$app->get("/robots/{id:[0-9]+}",function($id) use ($app){
-    $controller = new \Controllers\Robots();
-    $app->response = $controller->get($id);
+
+$app->get("/person",function() use ($app){
+    $controller = new \Controllers\Core\Person();
+    $app->response = $controller->get();
+});
+
+$app->post("/auth",function() use ($app){
+    $app->response = (new \Controllers\Core\Auth())->post();
 
 });
 
