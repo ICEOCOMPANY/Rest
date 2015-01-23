@@ -20,7 +20,7 @@ class Person
             );
         }
 
-        echo json_encode("chuj");
+        echo json_encode($response);
 
     }
 
