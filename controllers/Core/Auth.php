@@ -19,8 +19,9 @@ class Auth extends \Phalcon\Mvc\Controller {
     public function createToken(){
         $response = new \Helpers\RestResponse();
 
+
         $parameters = array(
-            "email" => $this->request->getPost("email")
+            "email" => $this->request->getJsonRawBody()->email
         );
 
         $user = \Models\Core\Users::findFirst(array(
@@ -31,7 +32,7 @@ class Auth extends \Phalcon\Mvc\Controller {
 
         if($user){
             $passwordVerify = \password_verify(
-                $this->request->getPost("password"),
+                $this->request->getJsonRawBody()->password,
                 $user->getPassword()
             );
 
@@ -68,13 +69,17 @@ class Auth extends \Phalcon\Mvc\Controller {
         return $response;
     }
 
-
     public function validateToken(){
         $response = false;
 
+        $token = getallheaders()['Authorization'];
+
+        if(!$token)
+            return false;
+
         $tokenModel = \Models\Core\Tokens::findFirst(array(
             "token = :token:",
-            "bind" => array("token" => $this->request->getPost("token") )
+            "bind" => array("token" =>  $token)
         ));
 
         if($tokenModel){

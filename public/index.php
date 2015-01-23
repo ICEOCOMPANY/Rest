@@ -1,7 +1,8 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
-header("Access-Control-Max-Age: 86400");
+
+//$httpRequest::setHeaders(array('User-Agent' => 'Mozilla/1.22 (compatible; MSIE 5.01; PalmOS 3.0) EudoraWeb 2'));
 
 use Phalcon\Mvc\Micro;
 
