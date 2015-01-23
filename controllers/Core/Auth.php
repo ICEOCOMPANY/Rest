@@ -9,30 +9,21 @@
 
 namespace Controllers\Core;
 
-use \Phalcon\Db\Column;
-
-class Auth extends \Phalcon\Mvc\Controller {
-
-    private $appSecretKey = "sFHePANXTQfhYprW7q2agtotD5YPNh";       // secret key which will encrypt/decrypt tokens
-    private $tokenPermanence = "PT15M";                             // token permanence (DateInterval)
+class Auth extends \Base\Controller {
 
     public function createToken(){
-        $response = new \Helpers\RestResponse();
 
-
-        $parameters = array(
-            "email" => $this->request->getJsonRawBody()->email
-        );
-
+        $email =  $this->request->getPostVar("email");
+        $password = $this->request->getPostVar("password");
+        
         $user = \Models\Core\Users::findFirst(array(
             "email = :email:",
-            "bind" => $parameters
+            "bind" => array("email" => $email)
         ));
-
 
         if($user){
             $passwordVerify = \password_verify(
-                $this->request->getJsonRawBody()->password,
+                $password,
                 $user->getPassword()
             );
 
@@ -41,41 +32,59 @@ class Auth extends \Phalcon\Mvc\Controller {
 
                 $tokenModel->setUserId( $user->getId() );
                 $token = \Libs\JWT::encode(
-                    array( "email" => $user->getEmail() , "password" => $user->getPassword() ),
-                    $this->appSecretKey
+                    array(
+                        "email" => $user->getEmail() ,
+                        "ip"=> $this->request->getClientAddress()
+                    ),
+                    \Helpers\Consts::appSecretKey
                 );
+
+
                 $tokenModel->setToken($token);
 
                 $tokenModel->setExpirationTime(
-                    (new \DateTime())->add(new \DateInterval($this->tokenPermanence))->format("Y-m-d H:i:s")
+                    (new \DateTime())
+                        ->add(new \DateInterval(\Helpers\Consts::tokenPermanence))
+                        ->format(\Helpers\Consts::mysqlDateTimeColumnFormat)
                 );
 
-                if($tokenModel->save()){
-                    $response->setStatusCode("201","Token created");
-                    $response->setJson(array("token"=>$token));
-                }
+
+                if($tokenModel->save())
+                    $this->response
+                        ->setCode(201)
+                        ->setJson(array("token"=>$token));
 
 
-            }else{
-                $response->setStatusCode("401","Unauthorized");
-                $response->setJsonErrors(array("password is invalid"));
-            }
+            }else
+                $this->response
+                    ->setCode(401)
+                    ->setJsonErrors(array("password is invalid"));
 
-        }else{
-            $response->setStatusCode("401","Unauthorized");
-            $response->setJsonErrors(array("not found user with this email"));
-        }
 
-        return $response;
+        }else
+            $this->response
+                ->setCode(401)
+                ->setJsonErrors(array("not found user with this email"));
+
+
+        return $this->response;
     }
 
-    public function validateToken(){
-        $response = false;
-
-        $token = getallheaders()['Authorization'];
+    public function getCurrentUserId(){
+        $token = $this->request->getHeaderMod('Authorization');
 
         if(!$token)
             return false;
+
+        $response = false;
+        $tokenIp = \Libs\JWT::decode(
+            $token,
+            \Helpers\Consts::appSecretKey
+        );
+
+        if($tokenIp != $this->request->getClientAddress())
+            return $this->response->setCode(403)->setJsonErrors(array("security attack!"));
+
 
         $tokenModel = \Models\Core\Tokens::findFirst(array(
             "token = :token:",
@@ -84,7 +93,9 @@ class Auth extends \Phalcon\Mvc\Controller {
 
         if($tokenModel){
             $tokenModel->setExpirationTime(
-                (new \DateTime())->add(new \DateInterval($this->tokenPermanence))->format("Y-m-d H:i:s")
+                (new \DateTime())
+                    ->add(new \DateInterval(\Helpers\Consts::tokenPermanence))
+                    ->format(\Helpers\Consts::mysqlDateTimeColumnFormat)
             );
 
             $tokenModel->save();
@@ -93,11 +104,54 @@ class Auth extends \Phalcon\Mvc\Controller {
         }
 
         return $response;
-
-
     }
 
 
+    public function getCurrentUser($id){
+        if($id){
 
+            $userModel = \Models\Core\Users::findFirst($id);
+            $this->response->setJson(array(
+                "email" => $userModel->getEmail()
+            ));
+
+        }else
+            $this->response
+                ->setCode(401)
+                ->setJsonErrors(array("you are not logged"));
+
+
+        return $this->response;
+    }
+
+    public function destroyToken(){
+
+        $token = $this->request->getHeaderMod('Authorization');
+
+        if(!$token){
+            $this->response
+                ->setCode(405)
+                ->setJsonErrors(array("token not given"));
+        }
+
+        $tokenModel = \Models\Core\Tokens::findFirst(array(
+            "token = :token:",
+            "bind" => array("token" =>  $token)
+        ));
+
+        if(!$tokenModel)
+            $this->response
+                ->setCode(405)
+                ->setJsonErrors(array(
+                    "token not right"
+                ));
+        elseif( $tokenModel->delete() )
+            $this->response->setConfirmOperationMessage("logout");
+        else
+            $this->response->setCode(503);
+
+
+        return $this->response;
+    }
 
 } 

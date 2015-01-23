@@ -1,8 +1,8 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
-
-//$httpRequest::setHeaders(array('User-Agent' => 'Mozilla/1.22 (compatible; MSIE 5.01; PalmOS 3.0) EudoraWeb 2'));
+header("Access-Control-Allow-Methods: *");
+header("Access-Control-Max-Age: 86400");
 
 use Phalcon\Mvc\Micro;
 
@@ -10,10 +10,13 @@ error_reporting(E_ALL);
 
 define('APP_PATH', realpath('..'));
 
+$debug = new \Phalcon\Debug();
+$debug->listen();
+
 try {
 
     /**
-     * Rea  d the configuration
+     * Read the configuration
      */
     $config = include __DIR__ . "/../config/config.php";
 

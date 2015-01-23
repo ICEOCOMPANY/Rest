@@ -1,25 +1,24 @@
 <?php
 
 $userDataContainer = new stdClass();
-$userDataContainer->id = (new \Controllers\Core\Auth())->validateToken();
+$userDataContainer->id = (new \Controllers\Core\Auth())->getCurrentUserId();
 
 $app->getDI()->set("user",$userDataContainer);
 
-$app->get("/person",function() use ($app){
-    $controller = new \Controllers\Core\Person();
-    $app->response = $controller->get();
-});
+
 
 $app->post("/auth",function() use ($app){
     $app->response = (new \Controllers\Core\Auth())->createToken();
 });
 
+$app->delete("/auth",function() use ($app){
+    $app->response = (new \Controllers\Core\Auth())->destroyToken();
+});
 
-
-$app->post("/checkAuth",function() use ($app){
-
-    print_r($app->getDI()->get("user")->id);
-    //$app->response = ;
+$app->get("/auth",function() use ($app){
+    $app->response = (new \Controllers\Core\Auth())->getCurrentUser(
+        $app->getDI()->get("user")->id
+    );
 });
 
 /**
