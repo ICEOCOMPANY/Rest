@@ -1,4 +1,6 @@
 <?php
+//define('APP_PATH', realpath(''));
+
 return new \Phalcon\Config(array(
 
     'database' => array(
@@ -14,6 +16,8 @@ return new \Phalcon\Config(array(
         'modelsDir'      => APP_PATH . '/models/',
         'viewsDir'       => APP_PATH . '/views/',
         'controllersDir' => APP_PATH . '/controllers',
+        'helpersDir'     => APP_PATH . '/helpers',
+        'libsDir'        => APP_PATH . '/libs',
         'baseUri'        => '/CoreBack/',
     )
 ));

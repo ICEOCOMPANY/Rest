@@ -1,4 +1,7 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+header("Access-Control-Max-Age: 86400");
 
 use Phalcon\Mvc\Micro;
 
@@ -9,7 +12,7 @@ define('APP_PATH', realpath('..'));
 try {
 
     /**
-     * Read the configuration
+     * Rea  d the configuration
      */
     $config = include __DIR__ . "/../config/config.php";
 
@@ -30,7 +33,7 @@ try {
     $app = new Micro($di);
 
     /**
-     * Incude Application
+     * Include Application
      */
     include APP_PATH . '/app.php';
 
@@ -38,6 +41,7 @@ try {
      * Handle the request
      */
     $app->handle();
+    $app->response->send();
 
 } catch (\Exception $e) {
     echo $e->getMessage();
