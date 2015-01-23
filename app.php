@@ -13,7 +13,8 @@ $app->get("/person",function() use ($app){
 });
 
 $app->post("/auth",function() use ($app){
-    $app->response = (new \Controllers\Core\Auth())->createToken();
+    echo json_encode("Hello");
+    //$app->response = (new \Controllers\Core\Auth())->createToken();
 });
 
 $app->post("/checkAuth",function() use ($app){
