@@ -67,7 +67,7 @@
       <file leaf-file-name="Request.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/helpers/Request.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="1" selection-start="256" selection-end="256" vertical-scroll-proportion="0.31905466" vertical-offset="0" max-vertical-offset="720">
+            <state line="18" column="111" selection-start="367" selection-end="367" vertical-scroll-proportion="0.34564254" vertical-offset="0" max-vertical-offset="720">
               <folding />
             </state>
           </provider>
@@ -453,7 +453,11 @@
       <created>1422278188168</created>
       <updated>1422278188168</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Poprawka do wspoldzialania razem z danymi przychodzacymi z angulara">
+      <created>1422278327962</created>
+      <updated>1422278327962</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TodoView" selected-index="5">
@@ -859,7 +863,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/helpers/Request.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="1" selection-start="256" selection-end="256" vertical-scroll-proportion="0.31905466" vertical-offset="0" max-vertical-offset="720">
+        <state line="18" column="111" selection-start="367" selection-end="367" vertical-scroll-proportion="0.34564254" vertical-offset="0" max-vertical-offset="720">
           <folding />
         </state>
       </provider>
