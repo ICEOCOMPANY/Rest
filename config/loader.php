@@ -9,7 +9,8 @@ $loader->registerNamespaces(array(
     "Controllers" => $config->application->controllersDir,
     "Helpers" => $config->application->helpersDir,
     "Models" => $config->application->modelsDir,
-    "Libs" => $config->application->libsDir
+    "Libs" => $config->application->libsDir,
+    "Base" => $config->application->baseDir
 ));
 
 $loader->register();

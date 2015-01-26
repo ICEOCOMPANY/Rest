@@ -1,6 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: *");
 header("Access-Control-Max-Age: 86400");
 
 use Phalcon\Mvc\Micro;
@@ -9,10 +10,13 @@ error_reporting(E_ALL);
 
 define('APP_PATH', realpath('..'));
 
+$debug = new \Phalcon\Debug();
+$debug->listen();
+
 try {
 
     /**
-     * Rea  d the configuration
+     * Read the configuration
      */
     $config = include __DIR__ . "/../config/config.php";
 
