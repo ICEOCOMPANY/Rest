@@ -3,6 +3,8 @@
 namespace Models\Core;
 
 use Phalcon\Mvc\Model\Validator\Email as Email;
+use Phalcon\Mvc\Model\Validator\Uniqueness as Uniqueness;
+use Phalcon\Mvc\Model\Validator\StringLength as StringLength;
 
 class Users extends \Phalcon\Mvc\Model
 {
@@ -63,8 +65,13 @@ class Users extends \Phalcon\Mvc\Model
      * @param string $registered
      * @return $this
      */
-    public function setRegistered($registered)
+    public function setRegistered($registered = null)
     {
+        if(!$registered)
+            $registered = (new \DateTime())
+                ->format(\Helpers\Consts::mysqlDateTimeColumnFormat);
+
+
         $this->registered = $registered;
 
         return $this;
@@ -78,9 +85,12 @@ class Users extends \Phalcon\Mvc\Model
      */
     public function setPassword($password)
     {
-        $this->password = $password;
-
-        return $this;
+        if(strlen($password) < \Helpers\Consts::minPasswordLength){
+            return NULL;
+        } else {
+            $this->password = \password_hash($password, PASSWORD_DEFAULT);
+            return $this;
+        }
     }
 
     /**
@@ -128,6 +138,13 @@ class Users extends \Phalcon\Mvc\Model
      */
     public function validation()
     {
+        $this->validate(
+            new Uniqueness(
+                array(
+                    'field' => 'email'
+                )
+            )
+        );
 
         $this->validate(
             new Email(
@@ -137,6 +154,7 @@ class Users extends \Phalcon\Mvc\Model
                 )
             )
         );
+
         if ($this->validationHasFailed() == true) {
             return false;
         }

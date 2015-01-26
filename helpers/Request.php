@@ -18,7 +18,11 @@ class Request extends \Phalcon\Http\Request {
 
         // TODO: Sprawdzic ta metode. Takie rozwizanie ze wzgledu na format danych przychodzacych z angular.js
         $json = file_get_contents("php://input");
-        $_POST = json_decode($json, true);
+        $_JSON = json_decode($json, true);
+
+        if($_JSON){
+            $_POST = array_merge($_POST,$_JSON);
+        }
     }
 
     public function getAllHeaders(){
@@ -37,4 +41,7 @@ class Request extends \Phalcon\Http\Request {
         return $this->getPost($key, $filters, $defaultValue, $notAllowEmpty, $noRecursive);
     }
 
+    public function getPutVar($key, $filters=null, $defaultValue=null, $notAllowEmpty=null, $noRecursive=null){
+        return $this->getPut($key, $filters, $defaultValue, $notAllowEmpty, $noRecursive);
+    }
 } 
