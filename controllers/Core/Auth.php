@@ -15,6 +15,11 @@ class Auth extends \Base\Controller {
 
         $email =  $this->request->getPostVar("email");
         $password = $this->request->getPostVar("password");
+
+        $this->response
+            ->setCode(201)
+            ->setJson(array("msg"=>$email));
+        return;
         
         $user = \Models\Core\Users::findFirst(array(
             "email = :email:",
