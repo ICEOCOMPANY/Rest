@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8210aa2-46a5-4d6f-9d7d-0ee7c717d261" name="Default" comment="Poprawka do wspoldzialania razem z danymi przychodzacymi z angulara">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/Core/Auth.php" afterPath="$PROJECT_DIR$/controllers/Core/Auth.php" />
+    <list default="true" id="e8210aa2-46a5-4d6f-9d7d-0ee7c717d261" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/helpers/Request.php" afterPath="$PROJECT_DIR$/helpers/Request.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.php" afterPath="$PROJECT_DIR$/app.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Core Back.iws" />
@@ -49,7 +47,7 @@
       <file leaf-file-name="Auth.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/Core/Auth.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="38" selection-start="1463" selection-end="1463" vertical-scroll-proportion="-22.666666" vertical-offset="342" max-vertical-offset="2916">
+            <state line="16" column="32" selection-start="278" selection-end="279" vertical-scroll-proportion="-10.666667" vertical-offset="0" max-vertical-offset="2916">
               <folding>
                 <element signature="e#6#85#0" expanded="true" />
               </folding>
@@ -69,7 +67,7 @@
       <file leaf-file-name="Request.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/helpers/Request.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="36" selection-start="497" selection-end="497" vertical-scroll-proportion="0.5605536" vertical-offset="0" max-vertical-offset="720">
+            <state line="17" column="1" selection-start="256" selection-end="256" vertical-scroll-proportion="0.31905466" vertical-offset="0" max-vertical-offset="720">
               <folding />
             </state>
           </provider>
@@ -447,10 +445,18 @@
       <created>1422034743453</created>
       <updated>1422034743453</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Poprawka do wspoldzialania razem z danymi przychodzacymi z angulara">
+      <created>1422278038786</created>
+      <updated>1422278038786</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Poprawka do wspoldzialania razem z danymi przychodzacymi z angulara">
+      <created>1422278188168</created>
+      <updated>1422278188168</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
-  <component name="TodoView" selected-index="0">
+  <component name="TodoView" selected-index="5">
     <todo-panel id="selected-file">
       <are-packages-shown value="false" />
       <are-modules-shown value="false" />
@@ -475,9 +481,10 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868758" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32979852" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22316684" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15250291" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868758" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32979852" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22316684" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2078978" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1823966" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -489,7 +496,6 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15250291" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -807,13 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="2" selection-start="319" selection-end="319" vertical-scroll-proportion="-10.666667" vertical-offset="0" max-vertical-offset="396">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="0" selection-start="1003" selection-end="1003" vertical-scroll-proportion="-17.88889" vertical-offset="129" max-vertical-offset="954">
@@ -835,15 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/Core/Auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="38" selection-start="1463" selection-end="1463" vertical-scroll-proportion="-22.666666" vertical-offset="342" max-vertical-offset="2916">
-          <folding>
-            <element signature="e#6#85#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/helpers/Consts.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="2" selection-start="417" selection-end="417" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="288">
@@ -851,9 +841,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/Core/Auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="32" selection-start="278" selection-end="279" vertical-scroll-proportion="-10.666667" vertical-offset="0" max-vertical-offset="2916">
+          <folding>
+            <element signature="e#6#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="2" selection-start="319" selection-end="319" vertical-scroll-proportion="-10.666667" vertical-offset="0" max-vertical-offset="396">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/helpers/Request.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="36" selection-start="497" selection-end="497" vertical-scroll-proportion="0.5605536" vertical-offset="0" max-vertical-offset="720">
+        <state line="17" column="1" selection-start="256" selection-end="256" vertical-scroll-proportion="0.31905466" vertical-offset="0" max-vertical-offset="720">
           <folding />
         </state>
       </provider>
