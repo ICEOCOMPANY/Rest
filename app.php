@@ -21,6 +21,11 @@ $app->post("/checkAuth",function() use ($app){
     //$app->response = ;
 });
 
+$app->put("/remind", function() use ($app){
+    $response->setStatusCode("204","No Content");
+    $response->setJson(array("message"=>"OK nigga"));
+});
+
 /**
  * Not found handler
  */
