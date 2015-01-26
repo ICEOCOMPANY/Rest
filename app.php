@@ -30,7 +30,6 @@ $app->options("/remind", function() use ($app){
 $app->put("/remind", function() use ($app){
     $response = new Phalcon\Http\Response();
     $response->setStatusCode("204","No Content");
-    $response->setJson(array("message"=>"OK nigga"));
 });
 
 /**
