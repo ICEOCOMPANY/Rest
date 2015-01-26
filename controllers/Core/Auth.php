@@ -19,9 +19,8 @@ class Auth extends \Base\Controller {
         $this->response
             ->setCode(201)
             ->setJson(array("msg"=>$email));
-        return;
         
-        $user = \Models\Core\Users::findFirst(array(
+        /*$user = \Models\Core\Users::findFirst(array(
             "email = :email:",
             "bind" => array("email" => $email)
         ));
@@ -71,7 +70,7 @@ class Auth extends \Base\Controller {
                 ->setCode(401)
                 ->setJsonErrors(array("not found user with this email"));
 
-
+*/
         return $this->response;
     }
 
