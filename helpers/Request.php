@@ -15,6 +15,10 @@ class Request extends \Phalcon\Http\Request {
 
     public function __construct(){
         $this->headers = getallheaders();
+
+        // Sprawdzic ta metode. Takie rozwizanie ze wzgledu na format danych przychodzacych z angular.js
+        $json = file_get_contents("php://input");
+        $_POST = json_decode($json, true);
     }
 
     public function getAllHeaders(){

@@ -11,6 +11,12 @@ $app->post("/auth",function() use ($app){
     $app->response = (new \Controllers\Core\Auth())->createToken();
 });
 
+$app->options("/auth", function() use ($app){
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, POST, PUT");
+    header("Access-Control-Allow-Headers: X-Custom-Header");
+});
+
 $app->delete("/auth",function() use ($app){
     $app->response = (new \Controllers\Core\Auth())->destroyToken();
 });
@@ -19,6 +25,17 @@ $app->get("/auth",function() use ($app){
     $app->response = (new \Controllers\Core\Auth())->getCurrentUser(
         $app->getDI()->get("user")->id
     );
+});
+
+$app->options("/remind", function() use ($app){
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, POST, PUT");
+    header("Access-Control-Allow-Headers: X-Custom-Header");
+});
+
+$app->put("/remind", function() use ($app){
+    $response = new Phalcon\Http\Response();
+    $response->setStatusCode("204","No Content");
 });
 
 /**

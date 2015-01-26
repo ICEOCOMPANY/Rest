@@ -15,7 +15,7 @@ class Auth extends \Base\Controller {
 
         $email =  $this->request->getPostVar("email");
         $password = $this->request->getPostVar("password");
-        
+
         $user = \Models\Core\Users::findFirst(array(
             "email = :email:",
             "bind" => array("email" => $email)
