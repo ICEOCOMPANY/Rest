@@ -21,6 +21,12 @@ $app->get("/auth",function() use ($app){
     );
 });
 
+$app->options("/remind", function() use ($app){
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, POST, PUT");
+    header("Access-Control-Allow-Headers: X-Custom-Header");
+});
+
 $app->put("/remind", function() use ($app){
     $response->setStatusCode("204","No Content");
     $response->setJson(array("message"=>"OK nigga"));
