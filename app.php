@@ -5,19 +5,7 @@ $userDataContainer->id = (new \Controllers\Core\Auth())->getCurrentUserId();
 
 $app->getDI()->set("user",$userDataContainer);
 
-$app->options("/{type}", function() use ($app){
-    header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-    header("Access-Control-Allow-Headers: Authorization");
-});
-
-$app->options("/{type}/{route1}", function() use ($app){
-    header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-    header("Access-Control-Allow-Headers: Authorization");
-});
-
-$app->options("/{type}/{route1}/{route2}", function() use ($app){
+$app->options("/{route1}/{route2}/{route3}", function() use ($app){
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
     header("Access-Control-Allow-Headers: Authorization");
