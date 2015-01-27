@@ -11,6 +11,18 @@ $app->options("/{type}", function() use ($app){
     header("Access-Control-Allow-Headers: Authorization");
 });
 
+$app->options("/{type}/{route1}", function() use ($app){
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+    header("Access-Control-Allow-Headers: Authorization");
+});
+
+$app->options("/{type}/{route1}/{route2}", function() use ($app){
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+    header("Access-Control-Allow-Headers: Authorization");
+});
+
 // Loguje uzytkownika
 $app->post("/auth",function() use ($app){
     $app->response = (new \Controllers\Core\Auth())->createToken();
