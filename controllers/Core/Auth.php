@@ -16,11 +16,7 @@ class Auth extends \Base\Controller {
         $email =  $this->request->getPostVar("email");
         $password = $this->request->getPostVar("password");
 
-        $this->response
-            ->setCode(201)
-            ->setJson(array("msg"=>$email));
-        
-        /*$user = \Models\Core\Users::findFirst(array(
+        $user = \Models\Core\Users::findFirst(array(
             "email = :email:",
             "bind" => array("email" => $email)
         ));
@@ -70,11 +66,13 @@ class Auth extends \Base\Controller {
                 ->setCode(401)
                 ->setJsonErrors(array("not found user with this email"));
 
-*/
+
         return $this->response;
     }
 
     public function getCurrentUserId(){
+
+
         $token = $this->request->getHeaderMod('Authorization');
 
         if(!$token)
@@ -86,14 +84,19 @@ class Auth extends \Base\Controller {
             \Helpers\Consts::appSecretKey
         );
 
-        if($tokenIp != $this->request->getClientAddress())
-            return $this->response->setCode(403)->setJsonErrors(array("security attack!"));
-
+        if($tokenIp->ip != $this->request->getClientAddress())
+            return false;
 
         $tokenModel = \Models\Core\Tokens::findFirst(array(
             "token = :token:",
             "bind" => array("token" =>  $token)
         ));
+
+        $now = (new \DateTime())
+            ->format(\Helpers\Consts::mysqlDateTimeColumnFormat);
+
+        if(strtotime($tokenModel->getExpirationTime()) < strtotime($now))
+            return false;
 
         if($tokenModel){
             $tokenModel->setExpirationTime(
@@ -157,5 +160,4 @@ class Auth extends \Base\Controller {
 
         return $this->response;
     }
-
 } 
