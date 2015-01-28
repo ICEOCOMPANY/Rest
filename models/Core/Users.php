@@ -33,6 +33,8 @@ class Users extends \Phalcon\Mvc\Model
      */
     protected $password;
 
+    protected $active;
+
 
     public function initialize()
     {
@@ -147,6 +149,16 @@ class Users extends \Phalcon\Mvc\Model
         return $this->password;
     }
 
+
+    public function getActive(){
+        return $this->getActive();
+    }
+
+    public function setActive($active){
+        $this->active = $active;
+        return $this;
+    }
+
     /**
      * Validations and business logic
      */
@@ -188,7 +200,8 @@ class Users extends \Phalcon\Mvc\Model
             'id' => 'id', 
             'email' => 'email', 
             'registered' => 'registered', 
-            'password' => 'password'
+            'password' => 'password',
+            'active' => 'active'
         );
     }
 

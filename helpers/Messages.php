@@ -21,4 +21,7 @@ class Messages {
     const couldNotSaveFile = "Could not save file.";
     const fileNotFoundError = "File not found.";
     const noPermissionsToDownloadFileError = "You have no permissions to download file.";
+    const activationKeyNotFound = "Activation key not found";
+    const accountActivated = "Your account has been activated";
+    //const tokenExpired = "Requested token is expired";
 }

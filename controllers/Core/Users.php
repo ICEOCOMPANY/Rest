@@ -28,8 +28,58 @@ class Users extends \Base\Controller {
         $user = new \Models\Core\Users();
         $user->setRegistered();
 
+        $user->setActive(0);
         // Przypisuje dane do uzytkownika z posta
-        $this->setUserData($user);
+        $result = $this->setUserData($user);
+
+
+        if($result){
+            $activationKey = \Helpers\String::generateRandomString(20);
+
+
+            $activationKeyModel = new \Models\Core\UsersActivationKeys();
+            $activationKeyModel
+                ->setUserId($result)
+                ->setKey($activationKey)
+                ->save();
+
+
+            $mailer = new \Helpers\Mailer();
+
+            $vars = array(
+                'user_email' => $user->getEmail(),
+                'activation_key' => $activationKey
+            );
+
+            $mailer->SendTemplateEmail("registered",$vars,"",$user->getEmail(),"Success");
+
+        }
+
+        return $this->response;
+    }
+
+
+    public function activateAccount(){
+
+        $activateKey = \Models\Core\UsersActivationKeys::findFirst(array(
+            "key = :key:",
+            "bind" => array("key" => $this->request->getPostVar("key"))
+        ));
+
+        if($activateKey){
+            $userId = $activateKey->getUserId();
+            $activateKey->delete();
+
+            $userModel = \Models\Core\Users::findFirst($userId);
+            $userModel->setActive(1);
+
+            if($userModel->save())
+                $this->response->setConfirmOperationMessage(\Helpers\Messages::accountActivated);
+
+        }else
+            $this->response
+                ->setCode(406)
+                ->setJsonErrors(array(\Helpers\Messages::activationKeyNotFound));
 
         return $this->response;
     }
@@ -219,12 +269,15 @@ class Users extends \Base\Controller {
                 ->setCode(405)
                 ->setJson($errors);
 
+            return false;
         } else {
 
             // Wszystko poszlo dobrze - zwracam ID
             $this->response
                 ->setCode(200)
                 ->setJson(array("id" => $user->getId()));
+
+            return $user->getId();
         }
     }
 

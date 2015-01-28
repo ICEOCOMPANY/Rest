@@ -95,8 +95,19 @@ class Auth extends \Base\Controller {
         $now = (new \DateTime())
             ->format(\Helpers\Consts::mysqlDateTimeColumnFormat);
 
-        if(strtotime($tokenModel->getExpirationTime()) < strtotime($now))
+        if(strtotime($tokenModel->getExpirationTime()) < strtotime($now)){
+            $tokenModel->delete();
+
+//            $this->response
+//                ->setCode(401)
+//                ->setJsonErrors(
+//                    array(
+//                        \Helpers\Messages::tokenExpired
+//                    ));
+
             return false;
+
+        }
 
         if($tokenModel){
             $tokenModel->setExpirationTime(

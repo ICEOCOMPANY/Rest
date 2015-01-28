@@ -1,5 +1,5 @@
 <?php
-define('APP_PATH', realpath(''));
+//define('APP_PATH', realpath(''));
 
 date_default_timezone_set('UTC');
 

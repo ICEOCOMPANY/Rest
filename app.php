@@ -5,7 +5,7 @@ $userDataContainer->id = (new \Controllers\Core\Auth())->getCurrentUserId();
 
 $app->getDI()->set("user",$userDataContainer);
 
-$app->options("/{route1}/{route2}/{route3}", function() use ($app){
+$app->options("/{route1}[/]?{route2}[/]?{route3}", function() use ($app){
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
     header("Access-Control-Allow-Headers: Authorization");
@@ -33,6 +33,11 @@ $app->post("/users",function() use ($app){
     $app->response = (new \Controllers\Core\Users())->create();
 });
 
+// aktywacja uzytkownika
+$app->post("/users/activation",function() use ($app){
+    $app->response = (new \Controllers\Core\Users())->activateAccount();
+});
+
 // Edycja uzytkownika
 $app->put("/users/{id:[0-9]+}",function($id) use ($app){
     $app->response = (new \Controllers\Core\Users())->edit($id);
@@ -54,18 +59,19 @@ $app->put("/users/reset-password/{reset_key}", function($reset_key) use ($app){
 });
 
 
-/**
- * Mail Test
- */
 
-
-// Wylogowywuje uzytkownika
-$app->post("/mail",function() use ($app){
-    $mailer = new \Helpers\Mailer();
-    print_r(
-        $mailer->SendEmail("dawid","d.duniec@iceo.co","email","email content")
-    );
+$app->post("/files",function() use ($app){
+    $app->response = (new \Controllers\Core\Files())->upload();
 });
+
+$app->get("/files/{id}",function($id) use ($app){
+    $app->response = (new \Controllers\Core\Files())->info($id);
+});
+
+$app->get("/files/{id}/download",function($id) use ($app){
+    $app->response = (new \Controllers\Core\Files())->download($id);
+});
+
 
 /**
  * Not found handler
