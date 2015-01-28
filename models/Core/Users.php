@@ -38,13 +38,16 @@ class Users extends \Phalcon\Mvc\Model
 
     public function initialize()
     {
+        //$this->hasMany("id", "Models\Core\UsersGroups", "user_id", array('alias' => 'groups'));
+
+        $this->setSource('users');
         $this->hasManyToMany(
-            'id',
-            '\Models\Core\UsersGroups',
-            'user_id',
-            'group_id',
-            '\Models\Core\Groups',
-            'id',
+            "id",
+            "Models\Core\UsersGroups",
+            "user_id",
+            "group_id",
+            "Models\Core\Groups",
+            "id",
             array('alias' => 'groups')
         );
     }

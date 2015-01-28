@@ -4,6 +4,11 @@ namespace Models\Core;
 
 class UsersGroups extends \Phalcon\Mvc\Model
 {
+    /**
+     *
+     * @var integer
+     */
+    protected $id;
 
     /**
      *
@@ -19,12 +24,26 @@ class UsersGroups extends \Phalcon\Mvc\Model
 
     public function initialize()
     {
-        $this->belongsTo('group_id', '\Models\Core\Groups', 'id',
+        $this->setSource('users_groups');
+        $this->belongsTo('group_id', 'Core\Models\Groups', 'id',
             array('alias' => 'group')
         );
-        $this->belongsTo('user_id', '\Models\Core\Users', 'id',
+        $this->belongsTo('user_id', 'Core\Models\Users', 'id',
             array('alias' => 'user')
         );
+    }
+
+    /**
+     * Method to set the value of field id
+     *
+     * @param integer $id
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -54,6 +73,16 @@ class UsersGroups extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Returns the value of field id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->user_id;
+    }
+
+    /**
      * Returns the value of field user_id
      *
      * @return integer
@@ -79,6 +108,7 @@ class UsersGroups extends \Phalcon\Mvc\Model
     public function columnMap()
     {
         return array(
+            'id' => 'id',
             'user_id' => 'user_id', 
             'group_id' => 'group_id'
         );

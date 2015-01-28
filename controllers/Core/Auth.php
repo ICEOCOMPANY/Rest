@@ -133,7 +133,7 @@ class Auth extends \Base\Controller {
                 "id" => $userModel->getId(),
                 "email" => $userModel->getEmail(),
                 "registered" => $userModel->getRegistered(),
-                "groups" => $userModel->getGroups()
+                "groups" => $userModel->getGroups()->toArray()
             ));
 
         }else

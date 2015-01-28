@@ -11,6 +11,11 @@ $app->options("/{route1}[/]?{route2}[/]?{route3}", function() use ($app){
     header("Access-Control-Allow-Headers: Authorization");
 });
 
+
+
+/**
+ * AUTH
+ */
 // Loguje uzytkownika
 $app->post("/auth",function() use ($app){
     $app->response = (new \Controllers\Core\Auth())->createToken();
@@ -28,6 +33,11 @@ $app->get("/auth",function() use ($app){
     );
 });
 
+
+
+/**
+ * USERS
+ */
 // Tworzy nowego uzytkownika
 $app->post("/users",function() use ($app){
     $app->response = (new \Controllers\Core\Users())->create();
@@ -60,6 +70,20 @@ $app->put("/users/reset-password/{reset_key}", function($reset_key) use ($app){
 
 
 
+/**
+ * GROUPS
+ */
+// Tworzy nowa grupe
+$app->post("/groups",function() use ($app){
+    $app->response = (new \Controllers\Core\Groups())->create();
+});
+
+
+
+
+/**
+ * FILES
+ */
 $app->post("/files",function() use ($app){
     $app->response = (new \Controllers\Core\Files())->upload();
 });

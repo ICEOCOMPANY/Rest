@@ -1,0 +1,1112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e8210aa2-46a5-4d6f-9d7d-0ee7c717d261" name="Default" comment="ele">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controllers/Core/Groups.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/Core/GroupsAdministrators.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/Core/Auth.php" afterPath="$PROJECT_DIR$/controllers/Core/Auth.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Core/Groups.php" afterPath="$PROJECT_DIR$/models/Core/Groups.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/Core/Users.php" afterPath="$PROJECT_DIR$/controllers/Core/Users.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Core/Users.php" afterPath="$PROJECT_DIR$/models/Core/Users.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Core/UsersGroups.php" afterPath="$PROJECT_DIR$/models/Core/UsersGroups.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.php" afterPath="$PROJECT_DIR$/app.php" />
+    </list>
+    <ignored path="Core Back.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Core Back" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="Groups.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/Core/Groups.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="147" column="5" selection-start="2368" selection-end="2368" vertical-scroll-proportion="-98.0" vertical-offset="0" max-vertical-offset="2934">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Users.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/Core/Users.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="108" column="0" selection-start="2682" selection-end="3249" vertical-scroll-proportion="-3.0" vertical-offset="1782" max-vertical-offset="5202">
+              <folding>
+                <element signature="e#6#153#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GroupsAdministrators.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/Core/GroupsAdministrators.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="0" selection-start="410" selection-end="410" vertical-scroll-proportion="-10.0" vertical-offset="162" max-vertical-offset="1602">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Auth.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/Core/Auth.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="45" selection-start="353" selection-end="450" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="3276">
+              <folding>
+                <element signature="e#6#85#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tokens.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/Core/Tokens.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="31" selection-start="1138" selection-end="1138" vertical-scroll-proportion="-46.0" vertical-offset="0" max-vertical-offset="2124">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Groups.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/Core/Groups.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="31" selection-start="1064" selection-end="1064" vertical-scroll-proportion="-1.8173258" vertical-offset="1775" max-vertical-offset="2844">
+              <folding>
+                <element signature="e#6#108#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="86" column="39" selection-start="2320" selection-end="2320" vertical-scroll-proportion="-20.037037" vertical-offset="1007" max-vertical-offset="1998">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsersGroups.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/Core/UsersGroups.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="0" selection-start="278" selection-end="589" vertical-scroll-proportion="-1.9518073" vertical-offset="270" max-vertical-offset="2214">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Users.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/Core/Users.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="22" selection-start="815" selection-end="815" vertical-scroll-proportion="-11.851851" vertical-offset="188" max-vertical-offset="3906">
+              <folding>
+                <element signature="e#31#78#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="FrameworkCommandLineHistory">
+    <commandsHistory>
+      <command text="phalcon commands" />
+      <command text="phalcon model password_resets" />
+      <command text="phalcon model PasswordsResetKeys" />
+      <command text="phalcon model passwords_reset_keys" />
+      <command text="phalcon model --name passwords_reset_keys" />
+      <command text="phalcon" />
+      <command text="phalcon commands" />
+      <command text="./phalcon " />
+      <command text="phalcon model" />
+      <command text="phalcon model paswords_reset_keys" />
+      <command text="phalcon model paswords_reset_keys --get-set" />
+      <command text="phalcon model files" />
+      <command text="phalcon model files -set-get" />
+      <command text="phalcon model files --set-get" />
+      <command text="phalcon model files --get-set" />
+      <command text="phalcon model files_directories --get-set" />
+      <command text="phalcon model users_groups --get-set" />
+      <command text="phalcon model groups --get-set" />
+      <command text="phalcon model groups_administrators --get-set" />
+    </commandsHistory>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.txt" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/controllers/Core/Auth.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/public/models/users.php" />
+        <option value="$PROJECT_DIR$/public/consts.php" />
+        <option value="$PROJECT_DIR$/public/models/Robots.php" />
+        <option value="$PROJECT_DIR$/public/config.php" />
+        <option value="$PROJECT_DIR$/config/services.php" />
+        <option value="$PROJECT_DIR$/helpers/restResponse.php" />
+        <option value="$PROJECT_DIR$/models/Toys/Robots.php" />
+        <option value="$PROJECT_DIR$/controllers/Person.php" />
+        <option value="$PROJECT_DIR$/public/error.php" />
+        <option value="$PROJECT_DIR$/models/Robots.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/controllers/Robots.php" />
+        <option value="$PROJECT_DIR$/controllers/Basic/Person.php" />
+        <option value="$PROJECT_DIR$/controllers/Core/Person.php" />
+        <option value="$PROJECT_DIR$/models/Users.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/helpers/RequestHeaders.php" />
+        <option value="$PROJECT_DIR$/helpers/RestResponse.php" />
+        <option value="$PROJECT_DIR$/config/loader.php" />
+        <option value="$PROJECT_DIR$/helpers/Response.php" />
+        <option value="$PROJECT_DIR$/libs/StatusCodes.php" />
+        <option value="$PROJECT_DIR$/public/index.php" />
+        <option value="$PROJECT_DIR$/libs/JWT.php" />
+        <option value="$PROJECT_DIR$/base/Controller.php" />
+        <option value="$PROJECT_DIR$/controllers/Core/Register.php" />
+        <option value="$PROJECT_DIR$/models/Core/PaswordsResetKeys.php" />
+        <option value="$PROJECT_DIR$/models/Core/PasswordsResetKeys.php" />
+        <option value="$PROJECT_DIR$/helpers/Request.php" />
+        <option value="$PROJECT_DIR$/controllers/Core/Upload.php" />
+        <option value="$PROJECT_DIR$/models/Core/Files.php" />
+        <option value="$PROJECT_DIR$/controllers/Core/Files.php" />
+        <option value="$PROJECT_DIR$/models/Core/FilesDirectories.php" />
+        <option value="$PROJECT_DIR$/helpers/Consts.php" />
+        <option value="$PROJECT_DIR$/helpers/MailTemplates/registered.htm" />
+        <option value="$PROJECT_DIR$/helpers/MailTemplates/users/registered.phtml" />
+        <option value="$PROJECT_DIR$/helpers/String.php" />
+        <option value="$PROJECT_DIR$/helpers/Mailer.php" />
+        <option value="$PROJECT_DIR$/helpers/MailTemplates/templates/registered.phtml" />
+        <option value="$PROJECT_DIR$/helpers/Messages.php" />
+        <option value="$PROJECT_DIR$/models/Core/Group.php" />
+        <option value="$PROJECT_DIR$/models/Core/User.php" />
+        <option value="$PROJECT_DIR$/controllers/Core/User.php" />
+        <option value="$PROJECT_DIR$/controllers/Core/Users.php" />
+        <option value="$PROJECT_DIR$/models/Core/UsersGroups.php" />
+        <option value="$PROJECT_DIR$/models/Core/Users.php" />
+        <option value="$PROJECT_DIR$/controllers/Core/Auth.php" />
+        <option value="$PROJECT_DIR$/config/config.php" />
+        <option value="$PROJECT_DIR$/models/Core/GroupsAdministrators.php" />
+        <option value="$PROJECT_DIR$/app.php" />
+        <option value="$PROJECT_DIR$/models/Core/Groups.php" />
+        <option value="$PROJECT_DIR$/controllers/Core/Groups.php" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
+    <include_path>
+      <path value="$USER_HOME$/phalcon/phalcon-devtools/ide/2.0.0" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1920" />
+    <option name="y" value="75" />
+    <option name="width" value="1920" />
+    <option name="height" value="948" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Core Back" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.jetbrains.php.config.PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Core Back" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoreBack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Core Back" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoreBack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Core Back" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoreBack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Core Back" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoreBack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Core Back" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoreBack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Core Back" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoreBack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cache" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mailer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Core Back" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoreBack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.lastSelected" value="reference.settings.deploy.options" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/phalcon/phalcon-devtools/ide/phpstorm" />
+    <property name="FullScreen" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="210" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="235" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="240" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1150" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="292" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="299" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="302" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="942" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="SearchEverywhereHistory" value="&#10;mo" />
+    <property name="LayoutCode.rearrangeEntriesPHP" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/base" />
+      <recent name="$PROJECT_DIR$/helpers/MailTemplates/images" />
+      <recent name="$PROJECT_DIR$/libs" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/controllers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/models/Core" />
+      <recent name="$PROJECT_DIR$/helpers/MailTemplates/index" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/models" />
+      <recent name="$PROJECT_DIR$/models/Toys" />
+    </key>
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://back.core.iceo.zone" />
+          <option name="urlPath" value="/files/1" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="bdbb8f01-f3ea-4074-8e87-f7def0bfcf24" server_name="Iceo development core back">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <configuration useDefault="true">$USER_HOME$/.subversion</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e8210aa2-46a5-4d6f-9d7d-0ee7c717d261" name="Default" comment="" />
+      <created>1421683096277</created>
+      <updated>1421683096277</updated>
+    </task>
+    <task id="LOCAL-00001" summary="pierwsze">
+      <created>1421762131097</created>
+      <updated>1421762131097</updated>
+    </task>
+    <task id="LOCAL-00002" summary="pierwsze">
+      <created>1421762174620</created>
+      <updated>1421762174620</updated>
+    </task>
+    <task id="LOCAL-00003" summary="pierwsze">
+      <created>1421762199491</created>
+      <updated>1421762199491</updated>
+    </task>
+    <task id="LOCAL-00004" summary="pierwsze">
+      <created>1421762214138</created>
+      <updated>1421762214138</updated>
+    </task>
+    <task id="LOCAL-00005" summary="pierwsze">
+      <created>1421762319251</created>
+      <updated>1421762319251</updated>
+    </task>
+    <task id="LOCAL-00006" summary="pierwsze">
+      <created>1421762717902</created>
+      <updated>1421762717902</updated>
+    </task>
+    <task id="LOCAL-00007" summary="pierwsze2">
+      <created>1421762973334</created>
+      <updated>1421762973334</updated>
+    </task>
+    <task id="LOCAL-00008" summary="clear">
+      <created>1421763020190</created>
+      <updated>1421763020190</updated>
+    </task>
+    <task id="LOCAL-00009" summary="clear">
+      <created>1421763797716</created>
+      <updated>1421763797716</updated>
+    </task>
+    <task id="LOCAL-00010" summary="clear">
+      <created>1421764653175</created>
+      <updated>1421764653175</updated>
+    </task>
+    <task id="LOCAL-00011" summary="clear">
+      <created>1421764737023</created>
+      <updated>1421764737023</updated>
+    </task>
+    <task id="LOCAL-00012" summary="clear">
+      <created>1421764749314</created>
+      <updated>1421764749314</updated>
+    </task>
+    <task id="LOCAL-00013" summary="clear">
+      <created>1421767557993</created>
+      <updated>1421767557993</updated>
+    </task>
+    <task id="LOCAL-00014" summary="clear">
+      <created>1421771228284</created>
+      <updated>1421771228284</updated>
+    </task>
+    <task id="LOCAL-00015" summary="nowy stworzony">
+      <created>1421771436178</created>
+      <updated>1421771436178</updated>
+    </task>
+    <task id="LOCAL-00016" summary="nowy stworzony">
+      <created>1421774916967</created>
+      <updated>1421774916967</updated>
+    </task>
+    <task id="LOCAL-00017" summary="nowy stworzony">
+      <created>1421779148421</created>
+      <updated>1421779148421</updated>
+    </task>
+    <task id="LOCAL-00018" summary="nowy stworzony">
+      <created>1421780182961</created>
+      <updated>1421780182961</updated>
+    </task>
+    <task id="LOCAL-00019" summary="nowy stworzony">
+      <created>1421842883789</created>
+      <updated>1421842883789</updated>
+    </task>
+    <task id="LOCAL-00020" summary="nowy stworzony">
+      <created>1421843009253</created>
+      <updated>1421843009253</updated>
+    </task>
+    <task id="LOCAL-00021" summary="wprowdzanie podziału wg namespace">
+      <created>1421863751493</created>
+      <updated>1421863751493</updated>
+    </task>
+    <task id="LOCAL-00022" summary="podstawowa autoryzacja">
+      <created>1421934435205</created>
+      <updated>1421934435205</updated>
+    </task>
+    <task id="LOCAL-00023" summary="poprawka w sprawdzeniu hasla">
+      <created>1421934827794</created>
+      <updated>1421934827794</updated>
+    </task>
+    <task id="LOCAL-00024" summary="allow cors">
+      <created>1421936424766</created>
+      <updated>1421936424766</updated>
+    </task>
+    <task id="LOCAL-00025" summary="access control">
+      <created>1421936723746</created>
+      <updated>1421936723746</updated>
+    </task>
+    <task id="LOCAL-00026" summary="wprowdzanie podziału wg namespace">
+      <created>1421936941710</created>
+      <updated>1421936941710</updated>
+    </task>
+    <task id="LOCAL-00027" summary="wprowdzanie podziału wg namespace">
+      <created>1421940301644</created>
+      <updated>1421940301644</updated>
+    </task>
+    <task id="LOCAL-00028" summary="dodanie modelu token">
+      <created>1421941391965</created>
+      <updated>1421941391965</updated>
+    </task>
+    <task id="LOCAL-00029" summary="dodanie modelu token">
+      <created>1421941442718</created>
+      <updated>1421941442718</updated>
+    </task>
+    <task id="LOCAL-00030" summary="dodanie modelu token">
+      <created>1421941903006</created>
+      <updated>1421941903006</updated>
+    </task>
+    <task id="LOCAL-00031" summary="dodanie modelu token">
+      <created>1421941983273</created>
+      <updated>1421941983273</updated>
+    </task>
+    <task id="LOCAL-00032" summary="implementacja autoryzacji tokenowej part 1 :)">
+      <created>1421956809473</created>
+      <updated>1421956809473</updated>
+    </task>
+    <task id="LOCAL-00033" summary="implementacja autoryzacji tokenowej part 2&#10;optymalizacja struktury katalogow&#10;zmiana schematu tworzenia kontrolera&#10;modyfikacja klas Request i Response">
+      <created>1422034743453</created>
+      <updated>1422034743453</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Poprawka do wspoldzialania razem z danymi przychodzacymi z angulara">
+      <created>1422278038786</created>
+      <updated>1422278038786</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Poprawka do wspoldzialania razem z danymi przychodzacymi z angulara">
+      <created>1422278188168</created>
+      <updated>1422278188168</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Poprawka do wspoldzialania razem z danymi przychodzacymi z angulara">
+      <created>1422278327962</created>
+      <updated>1422278327962</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Poprawka do wspoldzialania razem z danymi przychodzacymi z angulara">
+      <created>1422278338333</created>
+      <updated>1422278338333</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Dodanie tworzenia nowego uzytkownika, edycji uzytkownika i resetowania hasla">
+      <created>1422302103475</created>
+      <updated>1422302103475</updated>
+    </task>
+    <task id="LOCAL-00039" summary="mail testing">
+      <created>1422440033518</created>
+      <updated>1422440033518</updated>
+    </task>
+    <task id="LOCAL-00040" summary="wyssylanie maili &#10;potwierdzenie rejestracji">
+      <created>1422462910101</created>
+      <updated>1422462910101</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="5">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1920" y="75" width="1920" height="948" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868758" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22316684" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15250291" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868758" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24596274" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24596274" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23166473" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18172157" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20575693" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15724947" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="CSS-X-Fire" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6975506" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21147715" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868758" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22316684" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15250291" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868758" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16216215" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16187434" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2078978" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1823966" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.06663113" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15671642" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21147715" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="CSS-X-Fire" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+    <MESSAGE value="pierwsze" />
+    <MESSAGE value="pierwsze2" />
+    <MESSAGE value="clear" />
+    <MESSAGE value="nowy stworzony" />
+    <MESSAGE value="podstawowa autoryzacja" />
+    <MESSAGE value="poprawka w sprawdzeniu hasla" />
+    <MESSAGE value="allow cors" />
+    <MESSAGE value="access control" />
+    <MESSAGE value="wprowdzanie podziału wg namespace" />
+    <MESSAGE value="dodanie modelu token" />
+    <MESSAGE value="implementacja autoryzacji tokenowej part 1 :)" />
+    <MESSAGE value="implementacja autoryzacji tokenowej part 2&#10;optymalizacja struktury katalogow&#10;zmiana schematu tworzenia kontrolera&#10;modyfikacja klas Request i Response" />
+    <MESSAGE value="Poprawka do wspoldzialania razem z danymi przychodzacymi z angulara" />
+    <MESSAGE value="Dodanie tworzenia nowego uzytkownika, edycji uzytkownika i resetowania hasla" />
+    <MESSAGE value="mail testing" />
+    <MESSAGE value="wyssylanie maili &#10;potwierdzenie rejestracji" />
+    <option name="LAST_COMMIT_MESSAGE" value="wyssylanie maili &#10;potwierdzenie rejestracji" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.74449337" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/config/services.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="3" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="666" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="41" selection-start="201" selection-end="217" vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="21" selection-start="1294" selection-end="1294" vertical-scroll-proportion="0.0" vertical-offset="921" max-vertical-offset="3960">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="3996">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="0" selection-start="1360" selection-end="1360" vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="3942">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="646" selection-end="646" vertical-scroll-proportion="0.0" vertical-offset="576" max-vertical-offset="846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="11" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="198" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="54" selection-start="644" selection-end="644" vertical-scroll-proportion="0.0" vertical-offset="179" max-vertical-offset="828">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="11" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="180" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_6.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1132" column="9" selection-start="37934" selection-end="37934" vertical-scroll-proportion="3.4482758" vertical-offset="18576" max-vertical-offset="21582" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/phalcon/phalcon-devtools/ide/2.0.0/Phalcon/Http/Response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="24" selection-start="879" selection-end="879" vertical-scroll-proportion="0.346875" vertical-offset="498" max-vertical-offset="5562" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.028037382" vertical-offset="0" max-vertical-offset="642" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="677" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/phalcon/phalcon-devtools/ide/2.0.0/Phalcon/Http/Request.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="117" selection-start="2405" selection-end="2480" vertical-scroll-proportion="0.3469388" vertical-offset="1363" max-vertical-offset="8532" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/JWT.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="285" column="19" selection-start="11457" selection-end="11457" vertical-scroll-proportion="-18.333334" vertical-offset="4545" max-vertical-offset="5256" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_5.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="381" column="9" selection-start="10442" selection-end="10442" vertical-scroll-proportion="0.0" vertical-offset="6562" max-vertical-offset="20718">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/phalcon/phalcon-devtools/ide/2.0.0/Phalcon/Http/Request/File.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="24" selection-start="2033" selection-end="2033" vertical-scroll-proportion="0.0" vertical-offset="1441" max-vertical-offset="2304">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Core/Files.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="6" selection-end="29" vertical-scroll-proportion="0.020761246" vertical-offset="0" max-vertical-offset="6048">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helpers/Response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="20" selection-start="816" selection-end="816" vertical-scroll-proportion="0.7404844" vertical-offset="6" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/StatusCodes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="192" column="30" selection-start="2590" selection-end="2594" vertical-scroll-proportion="3.8408306" vertical-offset="0" max-vertical-offset="5940">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/MailGun/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="641">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/MailGun/guzzle/guzzle/src/Guzzle/Log/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="9" selection-start="362" selection-end="362" vertical-scroll-proportion="0.32247558" vertical-offset="0" max-vertical-offset="630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helpers/Request.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="36" selection-start="541" selection-end="541" vertical-scroll-proportion="0.64495116" vertical-offset="0" max-vertical-offset="846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/loader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="0.029411765" vertical-offset="0" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="9" selection-start="657" selection-end="657" vertical-scroll-proportion="0.6764706" vertical-offset="0" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/password.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="7" selection-start="1229" selection-end="1229" vertical-scroll-proportion="0.3472454" vertical-offset="476" max-vertical-offset="2340">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="20" selection-start="70" selection-end="70" vertical-scroll-proportion="0.08450704" vertical-offset="0" max-vertical-offset="639">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helpers/Consts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="2" selection-start="731" selection-end="731" vertical-scroll-proportion="0.3768116" vertical-offset="0" max-vertical-offset="621">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helpers/MailTemplates/templates/registered.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="229" selection-end="229" vertical-scroll-proportion="-7.3333335" vertical-offset="0" max-vertical-offset="360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Core/UsersActivationKeys.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="6" selection-start="169" selection-end="169" vertical-scroll-proportion="0.3631124" vertical-offset="0" max-vertical-offset="1584">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helpers/String.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="2" selection-start="519" selection-end="519" vertical-scroll-proportion="0.40223464" vertical-offset="0" max-vertical-offset="716">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helpers/Mailer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="6" selection-start="649" selection-end="649" vertical-scroll-proportion="-8.666667" vertical-offset="216" max-vertical-offset="2088">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helpers/Messages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="6" selection-start="1138" selection-end="1138" vertical-scroll-proportion="-13.333333" vertical-offset="0" max-vertical-offset="486">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="2" selection-start="319" selection-end="319" vertical-scroll-proportion="-10.666667" vertical-offset="0" max-vertical-offset="396">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Core/FilesDirectories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="6" selection-start="161" selection-end="161" vertical-scroll-proportion="-7.7777777" vertical-offset="42" max-vertical-offset="3654">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/phalcon/phalcon-devtools/ide/2.0.0/Phalcon/Mvc/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1087" column="27" selection-start="26270" selection-end="26270" vertical-scroll-proportion="-8.740741" vertical-offset="19330" max-vertical-offset="23940">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="48" selection-start="687" selection-end="687" vertical-scroll-proportion="-22.666666" vertical-offset="0" max-vertical-offset="1044">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/Core/Files.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="20" selection-start="479" selection-end="483" vertical-scroll-proportion="33.88889" vertical-offset="2208" max-vertical-offset="5742">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Core/PasswordsResetKeys.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="5" selection-start="1477" selection-end="1477" vertical-scroll-proportion="12.703704" vertical-offset="1927" max-vertical-offset="3366">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="47" selection-start="543" selection-end="543" vertical-scroll-proportion="0.51274365" vertical-offset="0" max-vertical-offset="667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Core/UsersGroups.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="278" selection-end="589" vertical-scroll-proportion="-1.9518073" vertical-offset="270" max-vertical-offset="2214">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Core/GroupsAdministrators.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="410" selection-end="410" vertical-scroll-proportion="-10.0" vertical-offset="162" max-vertical-offset="1602">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Core/Tokens.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="31" selection-start="1138" selection-end="1138" vertical-scroll-proportion="-46.0" vertical-offset="0" max-vertical-offset="2124">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="39" selection-start="2320" selection-end="2320" vertical-scroll-proportion="-20.037037" vertical-offset="1007" max-vertical-offset="1998">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Core/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="22" selection-start="815" selection-end="815" vertical-scroll-proportion="-11.851851" vertical-offset="188" max-vertical-offset="3906">
+          <folding>
+            <element signature="e#31#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Core/Groups.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="147" column="5" selection-start="2368" selection-end="2368" vertical-scroll-proportion="-98.0" vertical-offset="0" max-vertical-offset="2934">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/Core/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="0" selection-start="2682" selection-end="3249" vertical-scroll-proportion="-3.0" vertical-offset="1782" max-vertical-offset="5202">
+          <folding>
+            <element signature="e#6#153#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/Core/Auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="45" selection-start="353" selection-end="450" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="3276">
+          <folding>
+            <element signature="e#6#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/Core/Groups.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="31" selection-start="1064" selection-end="1064" vertical-scroll-proportion="-1.8173258" vertical-offset="1775" max-vertical-offset="2844">
+          <folding>
+            <element signature="e#6#108#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
