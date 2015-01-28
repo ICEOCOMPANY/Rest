@@ -1,5 +1,8 @@
 <?php
 /**
+ * Kontroler uzytkownikow
+ *
+ * Path: /controllers/Core/Users.php
  * Created by PhpStorm.
  * Author: dawid
  * Date: 26.01.15
@@ -11,7 +14,10 @@ namespace Controllers\Core;
 
 class Users extends \Base\Controller {
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////   PUBLICZNE
+
     /**
+     * POST
      * Tworzenie nowego uzytkownika
      *
      * @return \Helpers\Response
@@ -23,12 +29,13 @@ class Users extends \Base\Controller {
         $user->setRegistered();
 
         // Przypisuje dane do uzytkownika z posta
-        $this->setUserData($user, "post");
+        $this->setUserData($user);
 
         return $this->response;
     }
 
     /**
+     * PUT
      * Edycja istniejcego uzytkownika
      *
      * @param $id - id uzytkownika
@@ -63,7 +70,7 @@ class Users extends \Base\Controller {
                 // Ma uprawnienia do edycji - edytuje
 
                 // przypisuje dane do uzytkownika z puta
-                $this->setUserData($user, "put");
+                $this->setUserData($user);
             }
         }
 
@@ -71,43 +78,7 @@ class Users extends \Base\Controller {
     }
 
     /**
-     * Ustawia dane dla uzytkownika (dla posta i puta)
-     *
-     * @param $user - obiekt uzytkownia
-     * @param string $method - metoda (domyslnie post)
-     */
-    private function setuserData($user, $method = "post"){
-        // Pobieram dane z posta
-        foreach($this->request->{"get".ucfirst($method)}() as $key => $value){
-            $setter_name = "set" . ucfirst($key);
-            if(method_exists($user ,$setter_name)){
-                $user->{$setter_name}($this->request->getPostVar($key));
-            }
-        }
-
-        if (!$user->save()) {
-
-            // Nie udalo sie zapisac - zwracam blad
-            $errors = array();
-            foreach ($user->getMessages() as $message) {
-                $errors[] = $message->getMessage();
-            }
-
-            $this->response
-                ->setCode(405)
-                ->setJson($errors);
-
-        } else {
-
-            // Wszystko poszlo dobrze - zwracam ID
-            $this->response
-                ->setCode(201)
-                ->setJson(array("id" => $user->getId()));
-        }
-    }
-
-
-    /**
+     * POST
      * prosba o wygenerowanie klucza resetowania hasla
      *
      * @param $email - email uzytkownika
@@ -144,9 +115,7 @@ class Users extends \Base\Controller {
                 // Nie udalo sie stworzyc klucza - zwracam blad
                 $this->response
                     ->setCode(405)
-                    ->setJsonErrors([
-                        'too many requests'
-                    ]);
+                    ->setJsonErrors(array(\Helpers\Messages::tooManyRequestsError));
             } else {
 
                 // Wszystko poszlo dobrze - zwracam klucz
@@ -158,6 +127,7 @@ class Users extends \Base\Controller {
     }
 
     /**
+     * PUT
      * Resetowanie hasla przy pomocy klucza
      *
      * @param $reset_key - klucz resetowania hasla
@@ -177,9 +147,7 @@ class Users extends \Base\Controller {
             // Klucz nie istnieje - zwracam blad
             $this->response
                 ->setCode(404)
-                ->setJsonErrors([
-                    'reset key not found'
-                ]);
+                ->setJsonErrors(array(\Helpers\Messages::passwordResetKeyNotFoundError));
         } else {
 
             // Klucz istnieje - lece dalej
@@ -192,9 +160,7 @@ class Users extends \Base\Controller {
                 // Nie znaleziono uzytkownika - zwracam blad
                 $this->response
                     ->setCode(404)
-                    ->setJsonErrors([
-                        'user not found'
-                    ]);
+                    ->setJsonErrors(array(\Helpers\Messages::userNotFoundError));
             } else {
 
                 // Znaleziono uzytkownika - ide dalej
@@ -203,9 +169,7 @@ class Users extends \Base\Controller {
                 if(!$user->setPassword($this->request->getPutVar("password"))){
                     $this->response
                         ->setCode(409)
-                        ->setJsonErrors([
-                            "password requirements not fulfilled"
-                        ]);
+                        ->setJsonErrors(array(\Helpers\Messages::passwordRequirementsNotFulfilledError));
                 } else {
                     if(!$user->save()){
 
@@ -225,6 +189,43 @@ class Users extends \Base\Controller {
             }
         }
         return $this->response;
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   PRYWATNE
+
+    /**
+     * Ustawia dane dla uzytkownika (dla posta i puta)
+     *
+     * @param $user - obiekt uzytkownia
+     */
+    private function setUserData($user){
+        // Pobieram dane z posta
+        foreach($this->request->getPost() as $key => $value){
+            $setter_name = "set" . ucfirst($key);
+            if(method_exists($user ,$setter_name)){
+                $user->{$setter_name}($this->request->getPostVar($key));
+            }
+        }
+
+        if (!$user->save()) {
+
+            // Nie udalo sie zapisac - zwracam blad
+            $errors = array();
+            foreach ($user->getMessages() as $message) {
+                $errors[] = $message->getMessage();
+            }
+
+            $this->response
+                ->setCode(405)
+                ->setJson($errors);
+
+        } else {
+
+            // Wszystko poszlo dobrze - zwracam ID
+            $this->response
+                ->setCode(200)
+                ->setJson(array("id" => $user->getId()));
+        }
     }
 
 }

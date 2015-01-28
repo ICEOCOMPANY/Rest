@@ -5,12 +5,15 @@ $userDataContainer->id = (new \Controllers\Core\Auth())->getCurrentUserId();
 
 $app->getDI()->set("user",$userDataContainer);
 
-$app->options("/{type}", function() use ($app){
+$app->options("/{route1}[/]?{route2}[/]?{route3}", function() use ($app){
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
     header("Access-Control-Allow-Headers: Authorization");
 });
 
+/**
+ * AUTORYZACJA UZYTKOWNIKOW
+ */
 // Loguje uzytkownika
 $app->post("/auth",function() use ($app){
     $app->response = (new \Controllers\Core\Auth())->createToken();
@@ -28,6 +31,10 @@ $app->get("/auth",function() use ($app){
     );
 });
 
+
+/**
+ * UZYTKOWNICY
+ */
 // Tworzy nowego uzytkownika
 $app->post("/users",function() use ($app){
     $app->response = (new \Controllers\Core\Users())->create();
@@ -44,14 +51,30 @@ $app->post("/users/{email}/reset-password", function($email) use ($app){
 });
 
 // Resetuje haslo uzytkownika
-// TODO: Zdecydowac, ktory link bedzie lepszy pod wzgledem REST'a
-// TODO: Sprawdzic jak dziala metoda PUT w angularze
-$app->put("/users/{email}/reset-password/{reset_key}", function($email,$reset_key) use ($app){
-    $app->response = (new \Controllers\Core\Users())->resetPasswordPUT($reset_key);
-});
 $app->put("/users/reset-password/{reset_key}", function($reset_key) use ($app){
     $app->response = (new \Controllers\Core\Users())->resetPasswordPUT($reset_key);
 });
+
+
+/**
+ * PLIKI
+ */
+// Wysylanie plikow
+$app->post("/files", function() use ($app){
+    $app->response = (new \Controllers\Core\Files())->upload();
+});
+
+// Pobieranie informacji o pliku
+$app->get("/files/{id}", function($id) use ($app){
+    $app->response = (new \Controllers\Core\Files())->info($id);
+});
+
+// Pobieranie pliku
+$app->get("/files/{id}/download", function($id) use ($app){
+    $app->response = (new \Controllers\Core\Files())->download($id);
+});
+
+
 
 /**
  * Not found handler

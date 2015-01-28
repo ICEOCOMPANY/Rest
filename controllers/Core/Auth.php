@@ -119,7 +119,10 @@ class Auth extends \Base\Controller {
 
             $userModel = \Models\Core\Users::findFirst($id);
             $this->response->setJson(array(
-                "email" => $userModel->getEmail()
+                "id" => $userModel->getId(),
+                "email" => $userModel->getEmail(),
+                "registered" => $userModel->getRegistered(),
+                "groups" => $userModel->getGroups()
             ));
 
         }else

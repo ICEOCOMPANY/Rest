@@ -33,6 +33,20 @@ class Users extends \Phalcon\Mvc\Model
      */
     protected $password;
 
+
+    public function initialize()
+    {
+        $this->hasManyToMany(
+            'id',
+            '\Models\Core\UsersGroups',
+            'user_id',
+            'group_id',
+            '\Models\Core\Groups',
+            'id',
+            array('alias' => 'groups')
+        );
+    }
+
     /**
      * Method to set the value of field id
      *
