@@ -53,6 +53,20 @@ $app->put("/users/reset-password/{reset_key}", function($reset_key) use ($app){
     $app->response = (new \Controllers\Core\Users())->resetPasswordPUT($reset_key);
 });
 
+
+/**
+ * Mail Test
+ */
+
+
+// Wylogowywuje uzytkownika
+$app->post("/mail",function() use ($app){
+    $mailer = new \Helpers\Mailer();
+    print_r(
+        $mailer->SendEmail("dawid","d.duniec@iceo.co","email","email content")
+    );
+});
+
 /**
  * Not found handler
  */

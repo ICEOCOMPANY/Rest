@@ -15,4 +15,5 @@ class Consts {
     const resetKeyPermanence = "PT30M";                    // token permanence (DateInterval)
     const mysqlDateTimeColumnFormat = "Y-m-d H:i:s";       // mysql DateTime column format
     const minPasswordLength = 8;                           // mysql DateTime column format
+    const defaultEmailFromAddress = 'ICEO CORE <no-reply@back.core.iceo.zone>'; // Default address from which email will be send
 } 
