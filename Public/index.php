@@ -30,6 +30,19 @@ try {
      */
     $app = new Micro($di);
 
+
+    require_once(APP_PATH . "/userDI.php");
+
+
+    $app->options("/{route1}[/]?{route2}[/]?{route3}", function() use ($app){
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+        header("Access-Control-Allow-Headers: Authorization");
+        header("Access-Control-Max-Age: 3628800");
+    });
+
+
+
     /**
      * Include Application
      */

@@ -11,6 +11,13 @@ namespace Controllers\Core;
 
 class Auth extends \Base\Controller {
 
+
+    public function __construct(){
+        $this->config = new \Configs\Core\Auth();
+        parent::__construct();
+    }
+
+
     public function createToken(){
 
         $email =  $this->request->getPostVar("email");
@@ -130,7 +137,8 @@ class Auth extends \Base\Controller {
                 "id" => $userModel->getId(),
                 "email" => $userModel->getEmail(),
                 "registered" => $userModel->getRegistered(),
-                "groups" => $userModel->getGroups()->toArray()
+                "groups" => $userModel->getGroups()->toArray(),
+                "active" => $userModel->getActive()
             ));
 
         }else
@@ -177,4 +185,4 @@ class Auth extends \Base\Controller {
 
         return $this->response;
     }
-} 
+}

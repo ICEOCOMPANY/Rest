@@ -6,11 +6,14 @@
  * Time: 12:41
  */
 
-namespace Configs\Controllers\Core;
+namespace Configs\Core;
 
 
 class Users extends \Base\Config{
     private $requireEmailActivation = true;
+
+    private $minPasswordLength = 8;
+
 
     function __construct(){
         $this
@@ -27,8 +30,20 @@ class Users extends \Base\Config{
         ;
     }
 
+    /**
+     * @return int
+     */
+    public function getMinPasswordLength()
+    {
+        return $this->minPasswordLength;
+    }
 
-    public function getRequireEmailActivation(){
+    /**
+     * @return boolean
+     */
+    public function getRequireEmailActivation()
+    {
         return $this->requireEmailActivation;
     }
+
 } 

@@ -1,35 +1,22 @@
 <?php
 
-$userDataContainer = new stdClass();
-$userDataContainer->id = (new \Controllers\Core\Auth())->getCurrentUserId();
-
-$app->getDI()->set("user",$userDataContainer);
-
-$app->options("/{route1}[/]?{route2}[/]?{route3}", function() use ($app){
-    header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-    header("Access-Control-Allow-Headers: Authorization");
-});
-
-
-
 /**
  * AUTH
  */
 // Loguje uzytkownika
 $app->post("/auth",function() use ($app){
-    $app->response = (new \Controllers\Core\Auth())->createToken();
+    $app->response = (new \Controllers\Core\Auth($app))->createToken();
 });
 
 // Wylogowywuje uzytkownika
 $app->delete("/auth",function() use ($app){
-    $app->response = (new \Controllers\Core\Auth())->destroyToken();
+    $app->response = (new \Controllers\Core\Auth($app))->destroyToken();
 });
 
 // Jesli uzytkownik jest zalogowany, to zwraca adres e-mail
 $app->get("/auth",function() use ($app){
     $app->response = (new \Controllers\Core\Auth())->getCurrentUser(
-        $app->getDI()->get("user")->id
+        $app->getDI()->get("user")->getCurrentUserId()
     );
 });
 

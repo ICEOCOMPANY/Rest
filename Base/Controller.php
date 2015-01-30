@@ -9,7 +9,7 @@
 namespace Base;
 
 
-abstract class Controller {
+abstract class Controller{
 
     protected $request;
 
@@ -17,14 +17,39 @@ abstract class Controller {
 
     protected $config = false;
 
-    public function __construct(){
+    public function __construct($app = false){
         $this->request = new \Helpers\Request();
         $this->response = new \Helpers\Response();
 
-        $configFileName = "\\Configs\\".get_class($this);
 
+        /**
+         * Autoloading config file for controller - turned off
+         */
+        /*
+        $configFileName = "\\Configs\\".get_class($this);
         if(class_exists($configFileName))
             $this->config = new $configFileName();
+*/
+
+        if($app != false)
+            $this->setDI(
+                $app->getDI()
+            );
+
 
     }
-} 
+
+    protected $_di;
+
+    public function setDI(\Phalcon\DiInterface $dependencyInjector)
+    {
+        $this->_di = $dependencyInjector;
+    }
+
+    public function getDI()
+    {
+        return $this->_di;
+    }
+
+
+}

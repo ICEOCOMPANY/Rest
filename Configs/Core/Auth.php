@@ -6,7 +6,7 @@
  * Time: 12:46
  */
 
-namespace Configs\Controllers\Core;
+namespace Configs\Core;
 
 
 class Auth extends \Base\Config{
@@ -14,15 +14,14 @@ class Auth extends \Base\Config{
     private $appSecretKey = "sFHePANXTQfhYprW7q2agtotD5YPNh"; // secret key which will encrypt/decrypt tokens
     private $tokenPermanence = "PT15M";                       // token permanence (DateInterval)
     private $resetKeyPermanence = "PT30M";                    // token permanence (DateInterval)
-    private $minPasswordLength = 8;                           // mysql DateTime column format'
 
     function __construct(){
         $this
-            ->newMsg(1,"password is invalid")
-            ->newMsg(2,"not found user with this email")
-            ->newMsg(3,"you are not logged")
-            ->newMsg(4,"token not given")
-            ->newMsg(5,"token incorrect")
+            ->newMsg(1,"Password is invalid")
+            ->newMsg(2,"Not found user with this email")
+            ->newMsg(3,"You are not logged")
+            ->newMsg(4,"Token not given")
+            ->newMsg(5,"Token incorrect")
             ->newMsg(6,"Logout Successful")
         ;
     }

@@ -18,7 +18,7 @@ abstract class Config {
             array("code"=>$code,"message"=>$this->errors[$code])
             : false ;
     }
-    public function newMsg($code,$message){
+    protected function newMsg($code,$message){
         $this->errors[$code] = $message;
         return $this;
     }

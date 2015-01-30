@@ -21,23 +21,24 @@ class Mailer {
     private $mgClient;
     private $domain;
     private $defaultFrom;
-
-    /**
-     * Tablica powiązań szablon -> potrzebne dla niego obrazki z katalogu $this->filesRoot
-     * @var array
-     */
-    private $imageDependiences = array(
-        "registered" => array("iceo_agency_mini_logo.png")
-    );
+    private $imageDependencies;
 
     /**
      * Ustawienia potrzebne do konfiguracji połączenia z MailGun
      */
+
+    protected $config;
     public function __construct(){
-        $this->defaultFrom = \Helpers\Consts::defaultEmailFromAddress;
-        $this->mgClient = new Mailgun('key-f88f80e3837adc90257107fd0d1f824b');
-        $this->domain = "sandboxa713f41ee0804cdda4dea26cf358f4cc.mailgun.org";
-        $this->filesRoot = APP_PATH."/Helpers/MailTemplates";
+        $this->config = new \Configs\Helpers\Mailer();
+
+
+        $this->defaultFrom = $this->config->getDefaultEmailFromAddress();
+        $this->mgClient = new Mailgun(
+            $this->config->getMailGunApiKey()
+        );
+        $this->domain = $this->config->getMailGunDomain();
+        $this->filesRoot = $this->config->getFilesRoot();
+        $this->imageDependencies = $this->config->getImageDependencies();
     }
 
     /**
@@ -90,7 +91,7 @@ class Mailer {
                     $volt = new \Phalcon\Mvc\View\Engine\Volt($view, $di);
 
                     $volt->setOptions(array(
-                        "compiledPath" => APP_PATH."/Cache/Mailer/"
+                        "compiledPath" => $this->config->getCacheTemplatesPath()
                     ));
 
 
@@ -104,8 +105,8 @@ class Mailer {
         $content = $view->getRender('templates', $template);
 
         $inline = array();
-        if(array_key_exists($template,$this->imageDependiences)){
-            foreach($this->imageDependiences[$template] as $fileName){
+        if(array_key_exists($template,$this->imageDependencies)){
+            foreach($this->imageDependencies[$template] as $fileName){
                 array_push($inline,'@'.$this->filesRoot.'/images/'.$fileName);
             }
 

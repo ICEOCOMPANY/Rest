@@ -15,6 +15,12 @@ class Groups extends \Base\Controller {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   PUBLICZNE
 
+    public function __construct(){
+        $this->config = new \Configs\Core\Groups();
+        parent::__construct();
+    }
+
+
     /**
      * POST
      * Tworzenie nowej grupy

@@ -33,11 +33,12 @@ class Users extends \Phalcon\Mvc\Model
     protected $password;
 
     protected $active;
-
+    protected $config = false;
 
     public function initialize()
     {
         //$this->hasMany("id", "Models\Core\UsersGroups", "user_id", array('alias' => 'groups'));
+        $this->config = new \Configs\Core\Users();
 
         $this->setSource('users');
         $this->hasManyToMany(
@@ -103,7 +104,7 @@ class Users extends \Phalcon\Mvc\Model
      */
     public function setPassword($password)
     {
-        if(strlen($password) < \Helpers\Consts::minPasswordLength){
+        if(strlen($password) < $this->config->getMinPasswordLength()){
             return NULL;
         } else {
             $this->password = \password_hash($password, PASSWORD_DEFAULT);
@@ -153,7 +154,7 @@ class Users extends \Phalcon\Mvc\Model
 
 
     public function getActive(){
-        return $this->getActive();
+        return $this->active;
     }
 
     public function setActive($active){

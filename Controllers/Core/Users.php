@@ -14,6 +14,11 @@ namespace Controllers\Core;
 
 class Users extends \Base\Controller {
 
+    public function __construct(){
+        $this->config = new \Configs\Core\Users();
+        parent::__construct();
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   PUBLICZNE
 
     /**
@@ -29,7 +34,7 @@ class Users extends \Base\Controller {
         $user->setRegistered();
 
         $user->setActive(
-            ($this->config->getRequireEmailActivation())?1:0
+            ($this->config->getRequireEmailActivation())?0:1
         );
 
         // Przypisuje dane do uzytkownika z posta

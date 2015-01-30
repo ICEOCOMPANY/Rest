@@ -6,7 +6,7 @@
  * Time: 13:37
  */
 
-namespace Configs\Controllers\Core;
+namespace Configs\Core;
 
 class Groups extends \Base\Config{
 
