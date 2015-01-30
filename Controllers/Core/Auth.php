@@ -45,7 +45,9 @@ class Auth extends \Base\Controller {
 
                 $tokenModel->setExpirationTime(
                     (new \DateTime())
-                        ->add(new \DateInterval(\Helpers\Consts::tokenPermanence))
+                        ->add(new \DateInterval(
+                            $this->config->getTokenPermanence()
+                        ))
                         ->format(\Helpers\Consts::mysqlDateTimeColumnFormat)
                 );
 

@@ -31,7 +31,9 @@ class Groups extends \Base\Controller {
             // Niezalogowany - zwracam blad
             $this->response
                 ->setCode(401)
-                ->setJsonErrors(array(\Helpers\Messages::notLoggedError));
+                ->setJsonErrors(array(
+                    $this->config->getMsgByCode(3)
+                ));
         } else {
 
             // Tworze grupe
@@ -65,7 +67,7 @@ class Groups extends \Base\Controller {
             // Niezalogowany - zwracam blad
             $this->response
                 ->setCode(401)
-                ->setJsonErrors(array(\Helpers\Messages::notLoggedError));
+                ->setJsonErrors(array($this->config->getMsgByCode(3)));
         } else {
 
             // Szukam grupy po ID
@@ -87,7 +89,7 @@ class Groups extends \Base\Controller {
                     // Nie ma uprawnien do edycji - zwracam blad
                     $this->response
                         ->setCode(401)
-                        ->setJsonErrors(array(\Helpers\Messages::noPermissionsToEditError));
+                        ->setJsonErrors(array($this->config->getMsgByCode(1)));
                 } else {
 
 
@@ -129,6 +131,7 @@ class Groups extends \Base\Controller {
         if (!$group->save()) {
 
             // Nie udalo sie zapisac - zwracam blad
+            // TODO Konwersja formatu błędów
             $errors = array();
             foreach ($group->getMessages() as $message) {
                 $errors[] = $message->getMessage();

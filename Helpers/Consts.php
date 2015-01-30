@@ -12,4 +12,5 @@ namespace Helpers;
 class Consts {
     const mysqlDateTimeColumnFormat = "Y-m-d H:i:s";       // mysql DateTime column format
     const defaultEmailFromAddress = 'ICEO CORE <no-reply@back.core.iceo.zone>'; // Default address from which email will be send
+    const minPasswordLength = 8;
 } 

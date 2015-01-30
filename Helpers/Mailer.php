@@ -8,7 +8,7 @@
 
 namespace Helpers;
 
-require APP_PATH.'/libs/MailGun/autoload.php';
+require APP_PATH.'/Libs/MailGun/autoload.php';
 use Mailgun\Mailgun;
 
 /**
@@ -37,7 +37,7 @@ class Mailer {
         $this->defaultFrom = \Helpers\Consts::defaultEmailFromAddress;
         $this->mgClient = new Mailgun('key-f88f80e3837adc90257107fd0d1f824b');
         $this->domain = "sandboxa713f41ee0804cdda4dea26cf358f4cc.mailgun.org";
-        $this->filesRoot = APP_PATH."/helpers/MailTemplates";
+        $this->filesRoot = APP_PATH."/Helpers/MailTemplates";
     }
 
     /**
@@ -90,7 +90,7 @@ class Mailer {
                     $volt = new \Phalcon\Mvc\View\Engine\Volt($view, $di);
 
                     $volt->setOptions(array(
-                        "compiledPath" => APP_PATH."/cache/mailer/"
+                        "compiledPath" => APP_PATH."/Cache/Mailer/"
                     ));
 
 

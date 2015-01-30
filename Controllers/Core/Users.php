@@ -28,30 +28,35 @@ class Users extends \Base\Controller {
         $user = new \Models\Core\Users();
         $user->setRegistered();
 
-        $user->setActive(0);
+        $user->setActive(
+            $this->config->getRequireEmailActivation()
+        );
+
         // Przypisuje dane do uzytkownika z posta
         $result = $this->setUserData($user);
 
-
         if($result){
-            $activationKey = \Helpers\String::generateRandomString(20);
+
+            if($this->config->getRequireEmailActivation()){
+                $activationKey = \Helpers\String::generateRandomString(20);
+
+                $activationKeyModel = new \Models\Core\UsersActivationKeys();
+                $activationKeyModel
+                    ->setUserId($result)
+                    ->setKey($activationKey)
+                    ->save();
 
 
-            $activationKeyModel = new \Models\Core\UsersActivationKeys();
-            $activationKeyModel
-                ->setUserId($result)
-                ->setKey($activationKey)
-                ->save();
+                $mailer = new \Helpers\Mailer();
 
+                $vars = array(
+                    'user_email' => $user->getEmail(),
+                    'activation_key' => $activationKey
+                );
 
-            $mailer = new \Helpers\Mailer();
+                $mailer->SendTemplateEmail("registered",$vars,"",$user->getEmail(),"Success");
 
-            $vars = array(
-                'user_email' => $user->getEmail(),
-                'activation_key' => $activationKey
-            );
-
-            $mailer->SendTemplateEmail("registered",$vars,"",$user->getEmail(),"Success");
+            }
 
         }
 
@@ -74,12 +79,16 @@ class Users extends \Base\Controller {
             $userModel->setActive(1);
 
             if($userModel->save())
-                $this->response->setConfirmOperationMessage(\Helpers\Messages::accountActivated);
+                $this->response->setConfirmOperationMessage(
+                    $this->config->getMsgByCode(2)
+                );
 
         }else
             $this->response
                 ->setCode(406)
-                ->setJsonErrors(array(\Helpers\Messages::activationKeyNotFound));
+                ->setJsonErrors(array(
+                        $this->config->getMsgByCode(1)
+                    ));
 
         return $this->response;
     }
@@ -101,7 +110,8 @@ class Users extends \Base\Controller {
             // Niezalogowany - zwracam blad
             $this->response
                 ->setCode(401)
-                ->setJsonErrors(array(\Helpers\Messages::notLoggedError));
+                ->setJsonErrors(array($this->config->getMsgByCode(3)));
+
         } else {
 
             // Zalogowany - lece dalej
@@ -114,7 +124,11 @@ class Users extends \Base\Controller {
                 // Nie ma uprawnien do edycji - zwracam blad
                 $this->response
                     ->setCode(401)
-                    ->setJsonErrors(array(\Helpers\Messages::noPermissionsToEditError));
+                    ->setJsonErrors(array(
+                        $this->config->getMsgByCode(4)
+                    ));
+
+
             } else {
 
                 // Ma uprawnienia do edycji - edytuje
@@ -147,9 +161,10 @@ class Users extends \Base\Controller {
             // Nie znalazlo uzytkownika - zwracam blad
             $this->response
                 ->setCode(404)
-                ->setJsonErrors([
-                    'user not exists'
-                ]);
+                ->setJsonErrors(
+                    $this->config->getMsgByCode(5)
+                );
+
         } else {
 
             // Znalazlo uzytkownika - ide dalej
@@ -165,7 +180,9 @@ class Users extends \Base\Controller {
                 // Nie udalo sie stworzyc klucza - zwracam blad
                 $this->response
                     ->setCode(405)
-                    ->setJsonErrors(array(\Helpers\Messages::tooManyRequestsError));
+                    ->setJsonErrors(array(
+                        $this->config->getMsgByCode(6)
+                    ));
             } else {
 
                 // Wszystko poszlo dobrze - zwracam klucz
@@ -197,7 +214,10 @@ class Users extends \Base\Controller {
             // Klucz nie istnieje - zwracam blad
             $this->response
                 ->setCode(404)
-                ->setJsonErrors(array(\Helpers\Messages::passwordResetKeyNotFoundError));
+                ->setJsonErrors(array(
+                    $this->config->getMsgByCode(7)
+                ));
+
         } else {
 
             // Klucz istnieje - lece dalej
@@ -210,7 +230,10 @@ class Users extends \Base\Controller {
                 // Nie znaleziono uzytkownika - zwracam blad
                 $this->response
                     ->setCode(404)
-                    ->setJsonErrors(array(\Helpers\Messages::userNotFoundError));
+                    ->setJsonErrors(array(
+                        $this->config->getMsgByCode(8)
+                    ));
+
             } else {
 
                 // Znaleziono uzytkownika - ide dalej
@@ -219,12 +242,15 @@ class Users extends \Base\Controller {
                 if(!$user->setPassword($this->request->getPutVar("password"))){
                     $this->response
                         ->setCode(409)
-                        ->setJsonErrors(array(\Helpers\Messages::passwordRequirementsNotFulfilledError));
+                        ->setJsonErrors(array(
+                            $this->config->getMsgByCode(9)
+                        ));
                 } else {
                     if(!$user->save()){
 
                         // Nie udalo sie zmienic hasla - wyswietlam bledy
                         $errors = array();
+                        //TODO Konwersja formatu błędów
                         foreach ($user->getMessages() as $message) {
                             $errors[] = $message->getMessage();
                         }
@@ -260,6 +286,7 @@ class Users extends \Base\Controller {
         if (!$user->save()) {
 
             // Nie udalo sie zapisac - zwracam blad
+            // TODO Konwersja formatu błędów
             $errors = array();
             foreach ($user->getMessages() as $message) {
                 $errors[] = $message->getMessage();

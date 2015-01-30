@@ -9,7 +9,7 @@
 namespace Base;
 
 
-class Config {
+abstract class Config {
 
     private $errors = array();
 
