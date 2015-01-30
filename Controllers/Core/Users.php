@@ -29,7 +29,7 @@ class Users extends \Base\Controller {
         $user->setRegistered();
 
         $user->setActive(
-            $this->config->getRequireEmailActivation()
+            ($this->config->getRequireEmailActivation())?1:0
         );
 
         // Przypisuje dane do uzytkownika z posta
