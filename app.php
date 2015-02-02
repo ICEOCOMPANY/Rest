@@ -45,12 +45,7 @@ $app->post("/users/password", function() use ($app){
     $app->response = (new \Controllers\Core\Users())->resetPasswordPOST();
 });
 
-//// Resetuje haslo uzytkownika
-//// TODO: Zdecydowac, ktory link bedzie lepszy pod wzgledem REST'a
-//// TODO: Sprawdzic jak dziala metoda PUT w angularze
-//$app->put("/users/{email}/reset-password/{reset_key}", function($email,$reset_key) use ($app){
-//    $app->response = (new \Controllers\Core\Users())->resetPasswordPUT($reset_key);
-//});
+// Zapisywanie nowego hasła bazująca na kluczu
 $app->put("/users/password", function() use ($app){
     $app->response = (new \Controllers\Core\Users())->resetPasswordPUT();
 });
@@ -62,10 +57,33 @@ $app->put("/users/password", function() use ($app){
  */
 // Tworzy nowa grupe
 $app->post("/groups",function() use ($app){
-    $app->response = (new \Controllers\Core\Groups())->create();
+    $app->response = (new \Controllers\Core\Groups($app))->create();
 });
 
+// Zmiana danych grupy
+$app->put("/groups/{id:[0-9]+}",function($id) use ($app){
+    $app->response = (new \Controllers\Core\Groups($app))->edit($id);
+});
 
+// Dodanie użytkownika do grupy
+$app->post("/groups/{groupId:[0-9]+}/users/{userId:[0-9]+}",function($groupId,$userId) use ($app){
+    $app->response = (new \Controllers\Core\Groups($app))->addToGroup($userId,$groupId);
+});
+
+// Usunięcie użytkownika z grupy
+$app->delete("/groups/{groupId:[0-9]+}/users/{userId:[0-9]+}",function($groupId,$userId) use ($app){
+    $app->response = (new \Controllers\Core\Groups($app))->removeUserFromGroup($userId,$groupId);
+});
+
+// Nadanie użytkownikowi praw administratora w grupie
+$app->post("/groups/{groupId:[0-9]+}/admins/{userId:[0-9]+}",function($groupId,$userId) use ($app){
+    $app->response = (new \Controllers\Core\Groups($app))->makeAdministrator($userId,$groupId);
+});
+
+// Usunięcie uprawnień administratora
+$app->delete("/groups/{groupId:[0-9]+}/admins/{userId:[0-9]+}",function($groupId,$userId) use ($app){
+    $app->response = (new \Controllers\Core\Groups($app))->removeAdmin($userId,$groupId);
+});
 
 
 /**

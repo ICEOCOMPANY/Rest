@@ -2,7 +2,7 @@
 /**
  * Kontroler uzytkownikow
  *
- * Path: /controllers/Core/Users.php
+ * Path: /Controllers/Core/Users.php
  * Created by PhpStorm.
  * Author: dawid
  * Date: 26.01.15
@@ -106,8 +106,8 @@ class Users extends \Base\Controller {
      * @return \Helpers\Response
      */
     public function edit($id){
-
-        $logged_user = (new \Controllers\Core\Auth())->getCurrentUserId();
+        // TODO Zmienić na DI
+        $logged_user = $this->getDI()->get("user")->getCurrentUserId();
 
         // Sprawdzam, czy zalogowany
         if (!$logged_user) {
@@ -223,7 +223,7 @@ class Users extends \Base\Controller {
      */
     public function resetPasswordPUT(){
 
-        $reset_key = $this->request->getPutVar("key");
+        $reset_key = $this->request->getPutVar('key');
         // Sprawdzam, czy klucz istnieje w bazie
         $reset_key = \Models\Core\PasswordsResetKeys::findFirst(array(
             "reset_key = :reset_key:",
@@ -260,7 +260,7 @@ class Users extends \Base\Controller {
                 // Znaleziono uzytkownika - ide dalej
 
                 // Ustawiam nowe haslo
-                if(!$user->setPassword($this->request->getPutVar("new_password"))){
+                if(!$user->setPassword($this->request->getPutVar('new_password'))){
                     $this->response
                         ->setCode(409)
                         ->setJsonErrors(array(
@@ -326,7 +326,7 @@ class Users extends \Base\Controller {
             // Wszystko poszlo dobrze - zwracam ID
             $this->response
                 ->setCode(200)
-                ->setJson(array("id" => $user->getId()));
+                ->setJson(array('id' => $user->getId()));
 
             return $user->getId();
         }

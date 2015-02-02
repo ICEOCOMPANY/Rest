@@ -44,6 +44,7 @@ abstract class Controller{
     public function setDI(\Phalcon\DiInterface $dependencyInjector)
     {
         $this->_di = $dependencyInjector;
+        return $this;
     }
 
     public function getDI()

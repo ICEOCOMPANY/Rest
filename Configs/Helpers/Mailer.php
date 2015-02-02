@@ -13,7 +13,7 @@ class Mailer extends \Base\Config{
 
     protected $defaultEmailFromAddress = 'ICEO CORE <no-reply@back.core.iceo.zone>';
     protected $mailGunApiKey = 'key-f88f80e3837adc90257107fd0d1f824b';
-    protected $mailGunDomain = "sandboxa713f41ee0804cdda4dea26cf358f4cc.mailgun.org";
+    protected $mailGunDomain = 'sandboxa713f41ee0804cdda4dea26cf358f4cc.mailgun.org';
     protected $filesRoot;
     protected $cacheTemplatesPath;
 
@@ -24,8 +24,8 @@ class Mailer extends \Base\Config{
      * @var array
      */
     protected $imageDependencies = array(
-        "registered" => array("iceo_agency_mini_logo.png"),
-        "resetpassword" => array("iceo_agency_mini_logo.png")
+        'registered' => array('iceo_agency_mini_logo.png'),
+        'resetpassword' => array('iceo_agency_mini_logo.png')
     );
 
     /**

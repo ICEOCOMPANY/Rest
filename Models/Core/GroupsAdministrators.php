@@ -1,5 +1,7 @@
 <?php
 
+namespace Models\Core;
+
 class GroupsAdministrators extends \Phalcon\Mvc\Model
 {
 
@@ -17,7 +19,7 @@ class GroupsAdministrators extends \Phalcon\Mvc\Model
 
     public function initialize()
     {
-        $this->setSource('users_administrators');
+        $this->setSource('groups_administrators');
         $this->belongsTo('group_id', 'Core\Models\Groups', 'id',
             array('alias' => 'group')
         );
