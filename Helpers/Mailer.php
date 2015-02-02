@@ -100,6 +100,7 @@ class Mailer {
         ));
 
         $view->post = $variables;
+        $view->vars = $this->config->getVarsAvailableInTemplate();
         $view->test_the_if = true;
 
         $content = $view->getRender('templates', $template);

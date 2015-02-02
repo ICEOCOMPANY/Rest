@@ -9,7 +9,7 @@
 <h1>{{ post['user_email'] }}</h1>
 
 Uzyj tego kodu by aktywowac konto
-<a href="http://front.core.iceo.zone/app/#/signup/{{ post['activation_key'] }}"> link</a>
+<a href="{{ vars['front_app_url'] }}signup/{{ post['activation_key'] }}"> link</a>
 
 
 

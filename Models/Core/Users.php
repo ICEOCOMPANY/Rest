@@ -104,7 +104,7 @@ class Users extends \Phalcon\Mvc\Model
      */
     public function setPassword($password)
     {
-        if(strlen($password) < $this->config->getMinPasswordLength()){
+        if(strlen($password) <= $this->config->getMinPasswordLength()){
             return NULL;
         } else {
             $this->password = \password_hash($password, PASSWORD_DEFAULT);

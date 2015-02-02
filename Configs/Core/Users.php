@@ -26,6 +26,8 @@ class Users extends \Base\Config{
             ->newMsg(7,"Password reset key not found or is expired. Try to generate new.")
             ->newMsg(8,"User fulfilling the criteria not found.")
             ->newMsg(9,"Password requirements not fulfilled. Password must contains at least 8 characters.")
+            ->newMsg(10,"Password reset successful")
+            ->newMsg(11,"Password reset process completed")
 
         ;
     }

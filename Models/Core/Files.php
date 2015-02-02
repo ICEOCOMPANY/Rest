@@ -66,7 +66,8 @@ class Files extends \Phalcon\Mvc\Model
     protected $modification_time;
 
 
-    public static function generateTemporaryName($user_id, $filename, $directory){
+    public static function generateTemporaryName(){
+        /*
         return sha1(
             $user_id .
             $filename .
@@ -74,6 +75,10 @@ class Files extends \Phalcon\Mvc\Model
             \Helpers\Consts::appSecretKey .
             (new \DateTime())->format(\Helpers\Consts::mysqlDateTimeColumnFormat)
         );
+
+        */
+
+        return \Helpers\String::generateRandomString(20);
     }
 
 

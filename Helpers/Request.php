@@ -42,6 +42,6 @@ class Request extends \Phalcon\Http\Request {
     }
 
     public function getPutVar($key, $filters=null, $defaultValue=null, $notAllowEmpty=null, $noRecursive=null){
-        return $this->getPut($key, $filters, $defaultValue, $notAllowEmpty, $noRecursive);
+        return $this->getPost($key, $filters, $defaultValue, $notAllowEmpty, $noRecursive);
     }
 } 

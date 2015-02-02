@@ -30,6 +30,17 @@ class PasswordsResetKeys extends \Phalcon\Mvc\Model
      */
     protected $expiration_time;
 
+    protected $config = false;
+
+    public function initialize()
+    {
+        //$this->hasMany("id", "Models\Core\UsersGroups", "user_id", array('alias' => 'groups'));
+        $this->config = new \Configs\Core\PasswordResetKeys();
+
+
+    }
+
+
     /**
      * Method to set the value of field id
      *
@@ -79,12 +90,18 @@ class PasswordsResetKeys extends \Phalcon\Mvc\Model
     public function setResetKeyForUser($user_id)
     {
 
+        /*
         $this->reset_key = sha1(
             $user_id .
             \Helpers\Consts::appSecretKey .
             (new \DateTime())->format(\Helpers\Consts::mysqlDateTimeColumnFormat)
         );
 
+        */
+
+        $this->reset_key = \Helpers\String::generateRandomString(
+            $this->config->getResetKeyLength()
+        );
         return $this;
     }
 
@@ -99,7 +116,7 @@ class PasswordsResetKeys extends \Phalcon\Mvc\Model
 
         if(!$expiration_time)
             $expiration_time = (new \DateTime())
-                ->add(new \DateInterval(\Helpers\Consts::resetKeyPermanence))
+                ->add(new \DateInterval($this->config->getResetKeyPermanence()))
                 ->format(\Helpers\Consts::mysqlDateTimeColumnFormat);
 
         $this->expiration_time = $expiration_time;

@@ -41,18 +41,18 @@ $app->put("/users/{id:[0-9]+}",function($id) use ($app){
 });
 
 // Generuje klucz resetowania hasla
-$app->post("/users/{email}/reset-password", function($email) use ($app){
-    $app->response = (new \Controllers\Core\Users())->resetPasswordPOST($email);
+$app->post("/users/password", function() use ($app){
+    $app->response = (new \Controllers\Core\Users())->resetPasswordPOST();
 });
 
-// Resetuje haslo uzytkownika
-// TODO: Zdecydowac, ktory link bedzie lepszy pod wzgledem REST'a
-// TODO: Sprawdzic jak dziala metoda PUT w angularze
-$app->put("/users/{email}/reset-password/{reset_key}", function($email,$reset_key) use ($app){
-    $app->response = (new \Controllers\Core\Users())->resetPasswordPUT($reset_key);
-});
-$app->put("/users/reset-password/{reset_key}", function($reset_key) use ($app){
-    $app->response = (new \Controllers\Core\Users())->resetPasswordPUT($reset_key);
+//// Resetuje haslo uzytkownika
+//// TODO: Zdecydowac, ktory link bedzie lepszy pod wzgledem REST'a
+//// TODO: Sprawdzic jak dziala metoda PUT w angularze
+//$app->put("/users/{email}/reset-password/{reset_key}", function($email,$reset_key) use ($app){
+//    $app->response = (new \Controllers\Core\Users())->resetPasswordPUT($reset_key);
+//});
+$app->put("/users/password", function() use ($app){
+    $app->response = (new \Controllers\Core\Users())->resetPasswordPUT();
 });
 
 

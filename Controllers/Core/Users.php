@@ -153,10 +153,11 @@ class Users extends \Base\Controller {
      * @param $email - email uzytkownika
      * @return \Helpers\Response
      */
-    public function resetPasswordPOST($email){
+    public function resetPasswordPOST(){
 
         // Filtruje email pod wzgledem poprawnosci
-        $email = (new \Phalcon\Filter())->sanitize($email, "email");
+        //$email = (new \Phalcon\Filter())->sanitize($email, "email");
+        $email = $this->request->getPostVar("email");
 
         // Szukam uzytkownika o podanym mailu
         $user = \Models\Core\Users::findFirstByEmail($email);
@@ -176,9 +177,9 @@ class Users extends \Base\Controller {
 
             // Tworze klucz resetowania hasla
             $reset_key = new \Models\Core\PasswordsResetKeys();
-            $reset_key->setUserId($user->getId());
-            $reset_key->setResetKeyForUser($user->getId());
-            $reset_key->setExpirationTime();
+            $reset_key ->setUserId($user->getId())
+                       ->setResetKeyForUser($user->getId())
+                       ->setExpirationTime();
 
             if (!$reset_key->save()) {
 
@@ -188,11 +189,25 @@ class Users extends \Base\Controller {
                     ->setJsonErrors(array(
                         $this->config->getMsgByCode(6)
                     ));
+
             } else {
 
                 // Wszystko poszlo dobrze - zwracam klucz
-                $this->response
-                    ->setJson(array("reset_key" => $reset_key->getResetKey()));
+                $this->response->setConfirmOperationMessage(
+                    $this->config->getMsgByCode(10)
+                );
+
+
+                $mailer = new \Helpers\Mailer();
+
+                $vars = array(
+                    'user_email' => $user->getEmail(),
+                    'key' => $reset_key->getResetKey()
+                );
+
+                $mailer->SendTemplateEmail("resetpassword",$vars,"",$user->getEmail(),"Success");
+
+
             }
         }
         return $this->response;
@@ -206,8 +221,9 @@ class Users extends \Base\Controller {
      *
      * @return \Helpers\Response
      */
-    public function resetPasswordPUT($reset_key){
+    public function resetPasswordPUT(){
 
+        $reset_key = $this->request->getPutVar("key");
         // Sprawdzam, czy klucz istnieje w bazie
         $reset_key = \Models\Core\PasswordsResetKeys::findFirst(array(
             "reset_key = :reset_key:",
@@ -244,7 +260,7 @@ class Users extends \Base\Controller {
                 // Znaleziono uzytkownika - ide dalej
 
                 // Ustawiam nowe haslo
-                if(!$user->setPassword($this->request->getPutVar("password"))){
+                if(!$user->setPassword($this->request->getPutVar("new_password"))){
                     $this->response
                         ->setCode(409)
                         ->setJsonErrors(array(
@@ -264,7 +280,10 @@ class Users extends \Base\Controller {
                             ->setCode(409)
                             ->setJsonErrors($errors);
                     } else {
-                        // Wszystko poszlo dobrze
+                        $reset_key->delete();
+                        $this->response->setConfirmOperationMessage(
+                            $this->config->getMsgByCode(11)
+                        );
                     }
                 }
             }

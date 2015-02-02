@@ -56,7 +56,7 @@ class Files extends \Base\Controller
                     $file->setUserId($logged_user);
                     $file->setOriginalName($filename);
                     $file->setDirectoryId($directory_id);
-                    $file->setTempName(\Models\Core\Files::generateTemporaryName($logged_user, $filename, $directory_id));
+                    $file->setTempName(\Models\Core\Files::generateTemporaryName());
                     $file->setSize($uploaded_file->getSize());
                     $file->setType($uploaded_file->getType());
                     $file->setCreationTime((new \DateTime())

@@ -13,7 +13,7 @@ class Auth extends \Base\Config{
 
     private $appSecretKey = "sFHePANXTQfhYprW7q2agtotD5YPNh"; // secret key which will encrypt/decrypt tokens
     private $tokenPermanence = "PT15M";                       // token permanence (DateInterval)
-    private $resetKeyPermanence = "PT30M";                    // token permanence (DateInterval)
+
 
     function __construct(){
         $this

@@ -17,12 +17,15 @@ class Mailer extends \Base\Config{
     protected $filesRoot;
     protected $cacheTemplatesPath;
 
+    protected $varsAvailableInTemplate;
+
     /**
      * Tablica powiązań szablon -> potrzebne dla niego obrazki z katalogu $this->filesRoot
      * @var array
      */
     protected $imageDependencies = array(
-        "registered" => array("iceo_agency_mini_logo.png")
+        "registered" => array("iceo_agency_mini_logo.png"),
+        "resetpassword" => array("iceo_agency_mini_logo.png")
     );
 
     /**
@@ -65,9 +68,29 @@ class Mailer extends \Base\Config{
         return $this->mailGunDomain;
     }
 
+    /**
+     * @return string
+     */
+    public function getCacheTemplatesPath()
+    {
+        return $this->cacheTemplatesPath;
+    }
+
+    /**
+     * @return array
+     */
+    public function getVarsAvailableInTemplate()
+    {
+        return $this->varsAvailableInTemplate;
+    }
+
 
     public function __construct(){
         $this->filesRoot =  APP_PATH."/Helpers/MailTemplates";
         $this->cacheTemplatesPath = APP_PATH."/Cache/Mailer/";
+
+        $this->varsAvailableInTemplate = array(
+            "front_app_url" => "http://front.core.iceo.zone/app/#/"
+        );
     }
 } 
