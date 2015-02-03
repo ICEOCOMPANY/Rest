@@ -14,9 +14,8 @@ namespace Controllers\Core;
 
 class Users extends \Base\Controller {
 
-    public function __construct(){
+    public function init(){
         $this->config = new \Configs\Core\Users();
-        parent::__construct();
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   PUBLICZNE

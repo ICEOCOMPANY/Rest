@@ -11,10 +11,8 @@ namespace Controllers\Core;
 
 class Auth extends \Base\Controller {
 
-
-    public function __construct(){
+    public function init(){
         $this->config = new \Configs\Core\Auth();
-        parent::__construct();
     }
 
 

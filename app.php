@@ -101,6 +101,21 @@ $app->get("/files/{id}/download",function($id) use ($app){
     $app->response = (new \Controllers\Core\Files())->download($id);
 });
 
+/**
+ * Api Keys
+ */
+
+$app->post("/api",function() use ($app){
+    $app->response = (new \Controllers\Core\Api($app))->createApiKeys();
+});
+
+$app->delete("/api",function() use ($app){
+    $app->response = (new \Controllers\Core\Api($app))->deleteApiKeys();
+});
+$app->get("/apilogin",function() use ($app){
+    $app->response = (new \Controllers\Core\Api($app))->loginViaApi();
+});
+
 
 /**
  * Not found handler

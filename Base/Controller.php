@@ -36,8 +36,10 @@ abstract class Controller{
                 $app->getDI()
             );
 
-
+        $this->init();
     }
+
+    function init(){}
 
     protected $_di;
 
