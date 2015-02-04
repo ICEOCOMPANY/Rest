@@ -127,16 +127,19 @@ class Auth extends \Base\Controller {
     }
 
 
-    public function getCurrentUser($id){
-        if($id){
+    public function getCurrentUser(){
+        $currentUser = $this->getDI()->get("user");
 
-            $userModel = \Models\Core\Users::findFirst($id);
+        if($currentUser->getId()){
+            $userModel = $currentUser->getModel();
+
             $this->response->setJson(array(
                 "id" => $userModel->getId(),
                 "email" => $userModel->getEmail(),
                 "registered" => $userModel->getRegistered(),
                 "groups" => $userModel->getGroups()->toArray(),
-                "active" => $userModel->getActive()
+                "active" => ($userModel->getActive()==1)?true:false,
+                "permissions" => $currentUser->getPermissions()
             ));
 
         }else
@@ -145,7 +148,6 @@ class Auth extends \Base\Controller {
                 ->setJsonErrors(array(
                     $this->config->getMsgByCode(3)
                 ));
-
 
         return $this->response;
     }

@@ -53,35 +53,35 @@ class JWT
     {
         $tks = explode('.', $jwt);
         if (count($tks) != 3) {
-            throw new \UnexpectedValueException('Wrong number of segments');
+            throw new UnexpectedValueException('Wrong number of segments');
         }
         list($headb64, $bodyb64, $cryptob64) = $tks;
         if (null === ($header = JWT::jsonDecode(JWT::urlsafeB64Decode($headb64)))) {
-            throw new \UnexpectedValueException('Invalid header encoding');
+            throw new UnexpectedValueException('Invalid header encoding');
         }
         if (null === $payload = JWT::jsonDecode(JWT::urlsafeB64Decode($bodyb64))) {
-            throw new \UnexpectedValueException('Invalid claims encoding');
+            throw new UnexpectedValueException('Invalid claims encoding');
         }
         $sig = JWT::urlsafeB64Decode($cryptob64);
         if ($verify) {
             if (empty($header->alg)) {
-                throw new \DomainException('Empty algorithm');
+                throw new DomainException('Empty algorithm');
             }
             if (is_array($key)) {
                 if (isset($header->kid)) {
                     $key = $key[$header->kid];
                 } else {
-                    throw new \DomainException('"kid" empty, unable to lookup correct key');
+                    throw new DomainException('"kid" empty, unable to lookup correct key');
                 }
             }
             // Check the signature
             if (!JWT::verify("$headb64.$bodyb64", $sig, $key, $header->alg)) {
-                throw new \SignatureInvalidException('Signature verification failed');
+                throw new SignatureInvalidException('Signature verification failed');
             }
             // Check if the nbf if it is defined. This is the time that the
             // token can actually be used. If it's not yet that time, abort.
             if (isset($payload->nbf) && $payload->nbf > time()) {
-                throw new \BeforeValidException(
+                throw new BeforeValidException(
                     'Cannot handle token prior to ' . date(\DateTime::ISO8601, $payload->nbf)
                 );
             }
@@ -89,13 +89,13 @@ class JWT
             // using tokens that have been created for later use (and haven't
             // correctly used the nbf claim).
             if (isset($payload->iat) && $payload->iat > time()) {
-                throw new \BeforeValidException(
+                throw new BeforeValidException(
                     'Cannot handle token prior to ' . date(\DateTime::ISO8601, $payload->iat)
                 );
             }
             // Check if this token has expired.
             if (isset($payload->exp) && time() >= $payload->exp) {
-                throw new \ExpiredException('Expired token');
+                throw new ExpiredException('Expired token');
             }
         }
         return $payload;

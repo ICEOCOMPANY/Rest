@@ -28,27 +28,24 @@ class Groups extends \Base\Controller {
      */
     public function create(){
 
-        $logged_user = $this->getDI()->get("user")->getCurrentUserId();
+        $user = $this->getDI()->get("user");
 
-        // Sprawdzam, czy zalogowany
-        if (!$logged_user) {
+        if (!$user->checkPermission($this->getPermissions()->get("CREATE_GROUPS")))
+            return
+                $this->response
+                    ->setCode(401)
+                    ->setJsonErrors(array($this->config->getMsgByCode(17)));
 
 
-            // Niezalogowany - zwracam blad
-            $this->response
-                ->setCode(401)
-                ->setJsonErrors(array($this->config->getMsgByCode(3)));
 
-        } else {
+        // Tworze grupe
+        $group = new \Models\Core\Groups();
+        $group->setParent(0);
+        $group->setOwnerId($user->getId());
 
-            // Tworze grupe
-            $group = new \Models\Core\Groups();
-            $group->setParent(0);
-            $group->setOwnerId($logged_user);
+        // Przypisuje dane do grupy z posta
+        $this->setGroupData($group,$this->request->getPost());
 
-            // Przypisuje dane do grupy z posta
-            $this->setGroupData($group,$this->request->getPost());
-        }
 
         return $this->response;
     }
@@ -63,37 +60,30 @@ class Groups extends \Base\Controller {
      */
     public function edit($id){
 
-        $can_edit = false;
-        $logged_user = $this->getDI()->get("user")->getCurrentUserId();
+        $user = $this->getDI()->get("user");
 
-        // Sprawdzam, czy zalogowany
-        if (!$logged_user) {
-
-            // Niezalogowany - zwracam blad
-            $this->response
-                ->setCode(401)
-                ->setJsonErrors(array($this->config->getMsgByCode(3)));
-        } else {
-
-            // Szukam grupy po ID
-            $group = \Models\Core\Groups::findFirstById($id);
-
-            if(!$group)
-                return $this->response->setCode(404)
-                    ->setJsonErrors(array(
-                        $this->config->getMsgByCode(2)
-                    ));
+        if (!$user->checkPermission($this->getPermissions()->get("CREATE_GROUPS")))
+            return
+                $this->response
+                    ->setCode(401)
+                    ->setJsonErrors(array($this->config->getMsgByCode(3)));
 
 
-            $can_edit = $this->checkPermissionToEdit(
-                $id,
-                $logged_user,
-                $group
-            );
 
-        }
+        // Szukam grupy po ID
+        $group = \Models\Core\Groups::findFirstById($id);
 
-        if($can_edit){
+        if(!$group)
+            return $this->response->setCode(404)
+                ->setJsonErrors(array(
+                    $this->config->getMsgByCode(2)
+                ));
+
+        if($this->checkPermissionToEdit(
+            $id,
+            $user->getId(),
+            $group
+        )){
 
             // przypisuje dane do grupy z puta
             $this->setGroupData($group,$this->request->getPut());
@@ -146,117 +136,112 @@ class Groups extends \Base\Controller {
 
     public function addToGroup($userId,$groupId){
 
-        $can_edit = false;
-        $logged_user = $this->getDI()->get("user")->getCurrentUserId();
+        $user = $this->getDI()->get("user");
 
-        // Sprawdzam, czy zalogowany
-        if (!$logged_user) {
+        if (!$user->checkPermission($this->getPermissions()->get("ADD_GROUP_MEMBERS")))
+            return
+                $this->response
+                    ->setCode(401)
+                    ->setJsonErrors(array($this->config->getMsgByCode(14)));
 
-            // Niezalogowany - zwracam blad
-            $this->response
-                ->setCode(401)
-                ->setJsonErrors(array($this->config->getMsgByCode(3)));
-        } else {
 
-            // Szukam grupy po ID
-            $group = \Models\Core\Groups::findFirstById($groupId);
+        // Szukam grupy po ID
+        $group = \Models\Core\Groups::findFirstById($groupId);
 
-            if(!$group)
-                return $this->response->setCode(404)
-                    ->setJsonErrors(array(
-                        $this->config->getMsgByCode(2)
-                    ));
+        if(!$group)
+            return $this->response->setCode(404)
+                ->setJsonErrors(array(
+                    $this->config->getMsgByCode(2)
+                ));
+
+        if(
+            $this->checkPermissionToEdit(
+                $groupId,
+                $user->getId(),
+                $group
+            )
+        ){
 
             if(
-                $this->checkPermissionToEdit(
-                    $groupId,
-                    $logged_user,
-                    $group
-                )
-            ){
+            (new \Models\Core\UsersGroups())
+                ->setUserId($userId)
+                ->setGroupId($group->getId())
+                ->save()
+            )
+                $this->response
+                    ->setConfirmOperationMessage(
+                        $this->config->getMsgByCode(4)
+                    );
+            else
+                $this->response
+                    ->setCode(418)
+                    ->setJsonErrors(array(
+                        $this->config->getMsgByCode(5)
+                    ));
 
-                if(
-                (new \Models\Core\UsersGroups())
-                    ->setUserId($userId)
-                    ->setGroupId($group->getId())
-                    ->save()
-                )
-                    $this->response
-                        ->setConfirmOperationMessage(
-                            $this->config->getMsgByCode(4)
-                        );
-                else
-                    $this->response
-                        ->setCode(418)
-                        ->setJsonErrors(array(
-                            $this->config->getMsgByCode(5)
-                        ));
-
-            }
         }
+
         return $this->response;
     }
 
 
     public function removeUserFromGroup($userId,$groupId){
         $can_edit = false;
-        $logged_user = $this->getDI()->get("user")->getCurrentUserId();
 
-        // Sprawdzam, czy zalogowany
-        if (!$logged_user) {
+        $user = $this->getDI()->get("user");
 
-            // Niezalogowany - zwracam blad
-            $this->response
-                ->setCode(401)
-                ->setJsonErrors(array($this->config->getMsgByCode(3)));
-        } else {
+        if (!$user->checkPermission($this->getPermissions()->get("REMOVE_GROUP_MEMBERS")))
+            return
+                $this->response
+                    ->setCode(401)
+                    ->setJsonErrors(array($this->config->getMsgByCode(15)));
 
-            // Szukam grupy po ID
-            $group = \Models\Core\Groups::findFirstById($groupId);
+        // Szukam grupy po ID
+        $group = \Models\Core\Groups::findFirstById($groupId);
 
-            if(!$group)
-                return $this->response->setCode(404)
-                    ->setJsonErrors(array(
-                        $this->config->getMsgByCode(2)
-                    ));
-
-            if(
-            $this->checkPermissionToEdit(
-                $groupId,
-                $logged_user,
-                $group
-            )
-            ){
-                $model = \Models\Core\UsersGroups::findFirst(array(
-                    "user_id = :user: AND group_id = :group:",
-                    "bind" => array("user" =>  $userId , "group" => $groupId)
+        if(!$group)
+            return $this->response->setCode(404)
+                ->setJsonErrors(array(
+                    $this->config->getMsgByCode(2)
                 ));
 
-                if(!$model)
-                    return $this->response
-                        ->setCode(409)
-                        ->setJsonErrors(array(
-                            $this->config->getMsgByCode(7)
-                        ));
-                if($model->delete())
-                    return $this->response
-                        ->setConfirmOperationMessage(
-                            $this->config->getMsgByCode(6)
-                        );
-                else
-                    return $this->response
-                        ->setCode(418)
-                        ->setJsonErrors(array(
-                            $this->config->getMsgByCode(5)
-                        ));
+        if(
+        $this->checkPermissionToEdit(
+            $groupId,
+            $user->getId(),
+            $group
+        )
+        ){
+            $model = \Models\Core\UsersGroups::findFirst(array(
+                "user_id = :user: AND group_id = :group:",
+                "bind" => array("user" =>  $userId , "group" => $groupId)
+            ));
 
-            }
+            if(!$model)
+                return $this->response
+                    ->setCode(409)
+                    ->setJsonErrors(array(
+                        $this->config->getMsgByCode(7)
+                    ));
+            if($model->delete())
+                return $this->response
+                    ->setConfirmOperationMessage(
+                        $this->config->getMsgByCode(6)
+                    );
+            else
+                return $this->response
+                    ->setCode(418)
+                    ->setJsonErrors(array(
+                        $this->config->getMsgByCode(5)
+                    ));
+
         }
+
         return $this->response;
     }
 
     private function checkPermissionToEdit($groupId,$userId,$group = -1){
-
+        $can_edit = false;
         // Szukam grupy po ID
         if(!$group === -1)
             $group = \Models\Core\Groups::findFirstById($groupId);
@@ -291,12 +276,15 @@ class Groups extends \Base\Controller {
 
 
     public function makeAdministrator($userId,$groupId){
-        $logged_user = $this->getDI()->get("user")->getCurrentUserId();
 
-        if (!$logged_user)
-            return $this->response
+
+        $user = $this->getDI()->get("user");
+
+        if (!$user->checkPermission($this->getPermissions()->get("MANAGE_GROUP_ADMINS")))
+            return
+                $this->response
                     ->setCode(401)
-                    ->setJsonErrors(array($this->config->getMsgByCode(3)));
+                    ->setJsonErrors(array($this->config->getMsgByCode(16)));
 
 
         $group = \Models\Core\Groups::findFirstById($groupId);
@@ -308,7 +296,7 @@ class Groups extends \Base\Controller {
                     ));
 
 
-        if($group->getOwnerId() != $logged_user)
+        if($group->getOwnerId() != $user->getId())
             return $this->response->setCode(401)
                 ->setJsonErrors(array(
                     $this->config->getMsgByCode(11)
@@ -358,13 +346,13 @@ class Groups extends \Base\Controller {
 
     public function removeAdmin($userId,$groupId){
 
+        $user = $this->getDI()->get("user");
 
-        $logged_user = $this->getDI()->get("user")->getCurrentUserId();
-
-        if (!$logged_user)
-            return $this->response
-                ->setCode(401)
-                ->setJsonErrors(array($this->config->getMsgByCode(3)));
+        if (!$user->checkPermission($this->getPermissions()->get("MANAGE_GROUP_ADMINS")))
+            return
+                $this->response
+                    ->setCode(401)
+                    ->setJsonErrors(array($this->config->getMsgByCode(16)));
 
 
         $group = \Models\Core\Groups::findFirstById($groupId);
@@ -376,7 +364,7 @@ class Groups extends \Base\Controller {
                 ));
 
 
-        if($group->getOwnerId() != $logged_user)
+        if($group->getOwnerId() != $user->getId())
             return $this->response->setCode(401)
                 ->setJsonErrors(array(
                     $this->config->getMsgByCode(11)

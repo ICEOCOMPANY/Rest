@@ -46,6 +46,8 @@ class Api extends \Base\Config{
             ->newMsg(1,"This user has no access keys")
             ->newMsg(2,"Keys have been removed")
             ->newMsg(3,"Unknown error")
+            ->newMsg(4,"No permission to create keys")
+            ->newMsg(5,"No permission to delete keys")
         ;
     }
 } 

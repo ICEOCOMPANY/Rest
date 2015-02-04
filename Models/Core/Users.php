@@ -32,7 +32,10 @@ class Users extends \Phalcon\Mvc\Model
      */
     protected $password;
 
+
     protected $active;
+    protected $permissions;
+
     protected $config = false;
 
     public function initialize()
@@ -195,6 +198,37 @@ class Users extends \Phalcon\Mvc\Model
     }
 
     /**
+     * @param array $permissions
+     */
+    public function setPermissions($permissions)
+    {
+        $this->permissions = $permissions;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPermissions()
+    {
+        return $this->permissions;
+    }
+
+    public function beforeSave(){
+        $this->permissions = join(",",$this->permissions);
+    }
+
+    public function afterFetch(){
+        if($this->permissions == "")
+            $this->permissions = array();
+        else
+            $this->permissions = explode(",",$this->permissions);
+    }
+
+    public function checkPermission($key){
+        return in_array($key,$this->permissions);
+    }
+
+    /**
      * Independent Column Mapping.
      */
     public function columnMap()
@@ -204,6 +238,7 @@ class Users extends \Phalcon\Mvc\Model
             'email' => 'email', 
             'registered' => 'registered', 
             'password' => 'password',
+            'permissions' => 'permissions',
             'active' => 'active'
         );
     }

@@ -15,9 +15,7 @@ $app->delete("/auth",function() use ($app){
 
 // Jesli uzytkownik jest zalogowany, to zwraca adres e-mail
 $app->get("/auth",function() use ($app){
-    $app->response = (new \Controllers\Core\Auth())->getCurrentUser(
-        $app->getDI()->get("user")->getCurrentUserId()
-    );
+    $app->response = (new \Controllers\Core\Auth($app))->getCurrentUser();
 });
 
 
@@ -36,8 +34,8 @@ $app->post("/users/activation",function() use ($app){
 });
 
 // Edycja uzytkownika
-$app->put("/users/{id:[0-9]+}",function($id) use ($app){
-    $app->response = (new \Controllers\Core\Users())->edit($id);
+$app->put("/users",function() use ($app){
+    $app->response = (new \Controllers\Core\Users($app))->edit();
 });
 
 // Generuje klucz resetowania hasla

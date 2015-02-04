@@ -18,8 +18,6 @@ class Users extends \Base\Controller {
         $this->config = new \Configs\Core\Users();
     }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////   PUBLICZNE
-
     /**
      * POST
      * Tworzenie nowego uzytkownika
@@ -34,6 +32,10 @@ class Users extends \Base\Controller {
 
         $user->setActive(
             ($this->config->getRequireEmailActivation())?0:1
+        );
+
+        $user->setPermissions(
+            $this->getPermissions()->getDefaultForRegistered()
         );
 
         // Przypisuje dane do uzytkownika z posta
@@ -81,6 +83,9 @@ class Users extends \Base\Controller {
 
             $userModel = \Models\Core\Users::findFirst($userId);
             $userModel->setActive(1);
+            $userModel->setPermissions(
+                $this->getPermissions()->getDefaultForActivated()
+            );
 
             if($userModel->save())
                 $this->response->setConfirmOperationMessage(
@@ -104,43 +109,18 @@ class Users extends \Base\Controller {
      * @param $id - id uzytkownika
      * @return \Helpers\Response
      */
-    public function edit($id){
-        // TODO Zmienić na DI
-        $logged_user = $this->getDI()->get("user")->getCurrentUserId();
+    public function edit(){
+        // Sprawdzam, czy jest zalogowany i ma uprawnienia do zmiany danych
 
-        // Sprawdzam, czy zalogowany
-        if (!$logged_user) {
+        $user = $this->getDI()->get("user");
 
-            // Niezalogowany - zwracam blad
-            $this->response
-                ->setCode(401)
-                ->setJsonErrors(array($this->config->getMsgByCode(3)));
-
-        } else {
-
-            // Zalogowany - lece dalej
-
-            // Szukam uzytkownika po ID
-            $user = \Models\Core\Users::findFirstById($id);
-
-            if(!$user || $logged_user != $user->getId()){
-
-                // Nie ma uprawnien do edycji - zwracam blad
+        if (!$user->checkPermission($this->getPermissions()->get("UPDATE_PROFILE")))
+            return
                 $this->response
                     ->setCode(401)
-                    ->setJsonErrors(array(
-                        $this->config->getMsgByCode(4)
-                    ));
+                    ->setJsonErrors(array($this->config->getMsgByCode(4)));
 
-
-            } else {
-
-                // Ma uprawnienia do edycji - edytuje
-
-                // przypisuje dane do uzytkownika z puta
-                $this->setUserData($user);
-            }
-        }
+        $this->setUserData($user->getModel());
 
         return $this->response;
     }

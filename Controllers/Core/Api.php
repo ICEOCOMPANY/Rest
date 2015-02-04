@@ -11,20 +11,21 @@ namespace Controllers\Core;
 
 class Api  extends \Base\Controller  {
 
+
     public function init(){
         $this->config = new \Configs\Core\Api();
     }
     public function createApiKeys(){
-        $logged_user = $this->getDI()->get("user")->getCurrentUserId();
+        $logged_user = $this->getDI()->get("user");
 
-        if (!$logged_user)
+        if (!$logged_user->checkPermission($this->getPermissions()->get("CREATE_API_KEYS")))
             return $this->response
                     ->setCode(401)
-                    ->setJsonErrors(array($this->config->getMsgByCode(3)));
+                    ->setJsonErrors(array($this->config->getMsgByCode(4)));
 
 
         $model = new \Models\Core\ApiKeys();
-        $model->setUserId($logged_user);
+        $model->setUserId($logged_user->getId());
 
         $model->setPrivate(
             \Helpers\String::generateRandomString(
@@ -38,6 +39,10 @@ class Api  extends \Base\Controller  {
             )
         );
 
+        $model->setPermissions(
+           $this->getPermissions()->getDefaultForApi()
+        );
+
         $model->save();
 
         return $this->response->setJson(array(
@@ -47,15 +52,15 @@ class Api  extends \Base\Controller  {
     }
 
     public function deleteApiKeys(){
-        $logged_user = $this->getDI()->get("user")->getCurrentUserId();
+        $logged_user = $this->getDI()->get("user");
 
-        if (!$logged_user)
+        if (!$logged_user->checkPermission($this->getPermissions()->get("CREATE_API_KEYS")))
             return $this->response
                 ->setCode(401)
-                ->setJsonErrors(array($this->config->getMsgByCode(3)));
+                ->setJsonErrors(array($this->config->getMsgByCode(5)));
 
 
-        $model = \Models\Core\ApiKeys::findFirst($logged_user);
+        $model = \Models\Core\ApiKeys::findFirst($logged_user->getId());
 
         if(!$model)
             return
@@ -89,8 +94,8 @@ class Api  extends \Base\Controller  {
             return false;
 
         $model = \Models\Core\ApiKeys::findFirst(array(
-            "public = :public:",
-            "bind" => array("public" => $publicKey)
+            'public = :public:',
+            'bind' => array('public' => $publicKey)
         ));
 
         if(!$model)
@@ -104,9 +109,9 @@ class Api  extends \Base\Controller  {
         if($dbSign != $sign)
             return false;
 
-        //TODO docelowo zwraca tylko id
-        return $this->response->setJson(array(
-            "id"=>$model->getUserId()
-        ));
+        return array(
+            'id' => $model->getUserId(),
+            'permissions' => $model->getPermissions()
+        );
     }
 } 

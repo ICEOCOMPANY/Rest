@@ -25,6 +25,10 @@ class Groups extends \Base\Config{
             ->newMsg(11,'No Permission to make admins')
             ->newMsg(12,'Provided user is not admin')
             ->newMsg(13,'Provided user is no longer admin')
+            ->newMsg(14,"No permissions to add group members")
+            ->newMsg(15,"No permissions to remove group members")
+            ->newMsg(16,"No permissions to manage group admins")
+            ->newMsg(17,"No permissions to create group")
         ;
     }
 
