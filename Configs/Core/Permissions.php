@@ -32,7 +32,9 @@ class Permissions  extends \Base\Config{
             $this->get("UPLOAD_FILE"),
             $this->get("CREATE_API_KEYS"),
             $this->get("REMOVE_API_KEYS"),
-            $this->get("CREATE_GROUPS")
+            $this->get("CREATE_GROUPS"),
+            $this->get('ADD_GROUP_MEMBERS'),
+            $this->get('MANAGE_GROUP_ADMINS')
         );
     }
 
